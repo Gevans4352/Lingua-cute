@@ -10,4 +10,23 @@ export const login = (req, res) => {
     message: "Login successful",
     user: { email },
   });
+
 };
+export const register = (req, res) =>{
+  const { name, email, password} = req.body;
+
+  if(!name || !email || !password){
+    return res.status(400).json({
+      success: false,
+      message: "Please fill all fields"
+    });
+  }
+  
+  return res.status(201).json({
+    success: true,
+    message:"Registration successful!",
+    user: {name, email}
+  });
+}
+
+

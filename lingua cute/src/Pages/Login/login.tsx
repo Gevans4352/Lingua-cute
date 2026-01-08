@@ -3,6 +3,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 import googleIcon from "../../assets/google-icon-logo-svgrepo-com.svg"
 import "./Login.scss";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -55,23 +56,24 @@ const Login = () => {
                 onClick={() => setShowPassword(!showPassword)}
               ></button>
             </div>
-            <a href="#">Forgot Password?</a>
+            <Link to="/Reset">Forgot Password?</Link>
             <button type="submit">Sign In</button>
           </form>
             <div className="divider">
               <span>or continue with</span>
             </div>
             <br />
-          <button className="google">
+          <button className="google" type="submit">
             <img src={googleIcon} alt="googleIcon" />
             Google
           </button>
           <p>
-            New to LinguaLove? <a href="#">Create an account</a>
+            New to LinguaLove? <Link to="/Register "onClick={(e) => e.stopPropagation()}>Create an account</Link>
           </p>
         </div>
       </div>
     </div>
+    
   );
 };
 
