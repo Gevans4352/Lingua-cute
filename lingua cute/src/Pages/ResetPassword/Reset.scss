@@ -1,8 +1,8 @@
 @import "../../style.scss";
 
 :root {
-  --color-bg: #111827;
-  --card-bg: #1f2937;
+  --color-bg:  #8B6F5C;
+  --card-bg: #C9B5A0;
 }
 
 .reset {
@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--color-white);
+    color: #2C2416;
 
     h1 {
       font-size: 2rem;
@@ -38,7 +38,7 @@
 
     p {
       font-size: 0.85rem;
-      color: var(--color-text-muted);
+      color: #4d443c;
       text-align: center;
       line-height: 1.5;
 
@@ -64,13 +64,13 @@
       gap: 10px;
       padding: 13px 15px;
       border-radius: 13px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #FFF9F0;
+      border: 1px solid #D4C4B4;
       transition: var(--transition-medium);
 
       svg {
         font-size: 1.1rem;
-        color: var(--color-text-muted);
+        color: #4A3D2F;
       }
 
       input {
@@ -78,19 +78,19 @@
         background: transparent;
         border: none;
         outline: none;
-        color: var(--color-white);
+        color: #2C2416;
         font-size: 0.9rem;
 
         &::placeholder {
-          color: var(--color-text-muted);
+          color: #A8916D;
         }
       }
 
       &:focus-within {
-        border-color: rgba(90, 36, 150, 0.5);
+         color: #2C2416;
 
         svg {
-          color: var(--color-primary-light);
+          color: #4A3D2F;
         }
       }
     }
@@ -103,18 +103,15 @@
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--color-white);
-      background: linear-gradient(
-        135deg,
-        var(--color-primary),
-        var(--color-primary-light)
-      );
+      background: #4A3D2F;
       cursor: pointer;
       transition: var(--transition-medium);
       box-shadow: var(--shadow-md);
 
       &:hover {
+        background-color: #474034;
         transform: translateY(-2px);
-        box-shadow: var(--glow-primary);
+        box-shadow: #A8916D;
       }
     }
 
@@ -123,7 +120,7 @@
       font-size: 0.8rem;
 
       a {
-        color: var(--color-primary-light);
+        color: #363025;;
         font-weight: 600;
 
         &:hover {
