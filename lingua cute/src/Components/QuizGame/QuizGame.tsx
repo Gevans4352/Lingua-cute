@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./QuizGame.scss";
+import { FiThumbsUp } from "react-icons/fi";
+import { CiTrophy } from "react-icons/ci";
 
 const QuizGame = () => {
   const quizData = [
@@ -98,8 +100,8 @@ const QuizGame = () => {
       <div className="quiz-container">
         <div className="result-screen">
           <div className="result-icons">
-            <span className="thumbs-up">👍</span>
-            <span className="trophy">🏆</span>
+            <span className="thumbs-up"><FiThumbsUp /></span>
+            <span className="trophy"><CiTrophy /></span>
           </div>
           
           <h2>Game Complete!</h2>
@@ -118,7 +120,7 @@ const QuizGame = () => {
           </p>
           
           <button className="retry-btn" onClick={resetQuiz}>
-            🔄 Play Again
+             Play Again
           </button>
         </div>
       </div>
@@ -139,7 +141,7 @@ const QuizGame = () => {
 <div className="quiz-container">
       <div className="quiz-header">
         <span className="question-number">
-          🌸 Question {currentQuestion + 1} of {quizData.length}
+           Question {currentQuestion + 1} of {quizData.length}
         </span>
         <div className="progress-bar">
           {quizData.map((_, idx) => (
