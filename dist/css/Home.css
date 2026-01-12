@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.navigationPage {
+  background-color: #8B6F5C;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+}
+@media (max-width: 1024px) {
+  .navigationPage {
+    padding: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .navigationPage {
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .navigationPage {
+    padding: 8px;
+  }
+}/*# sourceMappingURL=Home.css.map */

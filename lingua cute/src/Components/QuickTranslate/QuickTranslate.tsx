@@ -5,23 +5,18 @@ import { IoCopyOutline } from "react-icons/io5";
 const QuickTranslate = () => {
   const phrases = [
     {
-      emoji: "👋",
       text: "Hello, how are you?",
     },
     {
-      emoji: "❤️",
       text: "I love learning Languages!",
     },
     {
-      emoji: "🌸",
       text: "What a beautiful day!",
     },
-    {
-      emoji: "🎉",
+    { 
       text: "Thank you so much!",
     },
     {
-      emoji: "👋",
       text: "See you tomorrow!",
     },
   ];
@@ -77,7 +72,7 @@ const QuickTranslate = () => {
     navigator.clipboard.writeText(translation[selectedPhase][selectedLang]);
   };
   return (
-<section className="kwitee">
+<section className="kwitee" id="kwitee">
   <h3>Quick Translate</h3>
   <h5>Pick a phase and see it different languages!</h5>
 
@@ -94,7 +89,7 @@ const QuickTranslate = () => {
             }`}
             onClick={() => setSelectedPhase(phrase.text)}
           >
-            <span>{phrase.emoji}</span> {phrase.text}
+           {phrase.text}
           </button>
         ))}
       </div>

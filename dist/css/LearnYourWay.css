@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.lwenyourwei {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.lwenyourwei h3 {
+  background: linear-gradient(135deg, #D2691E 0%, #FF9E5E 50%, #FFA07A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+.lwenyourwei h4 {
+  font-size: 1.5em;
+  color: #5D4037;
+  font-weight: 500;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+.lwenyourwei .features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+.lwenyourwei .feature-card {
+  padding: 40px 30px;
+  border-radius: 25px;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.lwenyourwei .feature-card .Explore {
+  display: none;
+  font-weight: 600;
+  color: #5D4037;
+  margin-top: 10px;
+}
+.lwenyourwei .feature-card .Explore .faRight {
+  margin-top: 10px;
+  text-align: center;
+}
+.lwenyourwei .feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid #5D4037;
+  color: brown;
+}
+.lwenyourwei .feature-card:hover .Explore {
+  display: block;
+}
+.lwenyourwei .feature-card .icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #fff;
+}
+.lwenyourwei .feature-card .icon-wrapper:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.lwenyourwei .feature-card h3 {
+  font-size: 1.5em;
+  color: #2C2416;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.lwenyourwei .feature-card p {
+  font-size: 1em;
+  color: #5D4037;
+  line-height: 1.6;
+}
+@media (max-width: 1024px) {
+  .lwenyourwei {
+    padding: 60px 20px;
+  }
+  .lwenyourwei h2 {
+    font-size: 2.5em;
+  }
+  .lwenyourwei .subtitle {
+    font-size: 1.1em;
+  }
+  .lwenyourwei .features-grid {
+    gap: 25px;
+  }
+}
+@media (max-width: 768px) {
+  .lwenyourwei {
+    padding: 50px 15px;
+  }
+  .lwenyourwei h2 {
+    font-size: 2.2em;
+  }
+  .lwenyourwei .subtitle {
+    font-size: 1em;
+  }
+  .lwenyourwei .subtitle br {
+    display: none;
+  }
+  .lwenyourwei .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .lwenyourwei .feature-card {
+    padding: 30px 25px;
+  }
+  .lwenyourwei .feature-card .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+  }
+  .lwenyourwei .feature-card h3 {
+    font-size: 1.3em;
+  }
+  .lwenyourwei .feature-card p {
+    font-size: 0.95em;
+  }
+}
+@media (max-width: 480px) {
+  .lwenyourwei h2 {
+    font-size: 1.8em;
+  }
+  .lwenyourwei .feature-card {
+    padding: 25px 20px;
+  }
+}/*# sourceMappingURL=LearnYourWay.css.map */

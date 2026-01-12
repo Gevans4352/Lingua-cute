@@ -1,0 +1,295 @@
+:root {
+  --bg: #1C1D1A;
+  --card: #6dce2c;
+  --text: #C6CEC2;
+  --mutedText: #868D84;
+  --accent: #3A3D39;
+  --online: #A3C9A5;
+  --shadowSoft: 0 0 8px rgba(184, 216, 186, 0.2);
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-medium: all 0.3s ease-in-out;
+  --transition-slow: all 0.5s ease-in-out;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  transition: var(--transition-medium);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  transition: var(--transition-medium);
+}
+
+.dark-app {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.light-app {
+  background-color: #F9F9F6;
+  color: #7A867C;
+  box-shadow: var(--shadowSoft);
+  transition: var(--transition-fast);
+}
+
+.theme-dark * {
+  transition: var(--transition-medium);
+}
+
+.theme-light * {
+  transition: var(--transition-medium);
+}
+
+.loading {
+  padding: 50px;
+  font-style: 36px;
+  border-radius: 10px;
+  background-color: var(--accent);
+}
+
+:root {
+  --color-bg-dark: #2a2a2a;
+  --color-bg-black: #0f0f0f;
+  --color-white: #fefefe;
+  --color-primary: #3a1b6d;
+  --color-primary-light: #4d2a8a;
+  --color-danger: #ff6b6b;
+  --color-success: #6bff8f;
+  --color-accent: #ff9e5e;
+  --color-text-muted: #b0b0b0;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --glow-primary: 0 0 12px rgba(90, 36, 150, 0.6);
+  --transition-fast: all 0.2s ease;
+  --transition-medium: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.login {
+  background-color: #8B6F5C;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login .card {
+  display: flex;
+  background-color: #C9B5A0;
+  min-height: min(600px, 90vh);
+  max-width: 500px;
+  padding: 3rem 2.5rem;
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.login .card .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  color: #2C2416;
+}
+.login .card .right h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+@media (max-width: 768px) {
+  .login .card .right h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .login .card .right h1 {
+    font-size: 1.75rem;
+  }
+}
+.login .card .right p {
+  font-size: 0.9rem;
+  color: #4d443c;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .login .card .right p {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+}
+.login .card .right form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 480px) {
+  .login .card .right form {
+    gap: 1.2rem;
+  }
+}
+.login .card .right .input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #FFF9F0;
+  border: 1px solid #D4C4B4;
+  transition: var(--transition-medium);
+}
+.login .card .right .input-wrapper svg {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+}
+.login .card .right .input-wrapper input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: #2C2416;
+}
+.login .card .right .input-wrapper input::placeholder {
+  color: #A8916D;
+}
+.login .card .right .input-wrapper:focus-within {
+  color: #2C2416;
+}
+.login .card .right .input-wrapper:focus-within svg {
+  color: #4A3D2F;
+}
+.login .card .right .input-wrapper .password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #F5EBD9;
+  font-size: 1rem;
+}
+.login .card .right .input-wrapper .password:hover {
+  background-color: #dfd5c3;
+}
+.login .card .right a {
+  align-self: flex-end;
+  font-size: 0.85rem;
+  color: #F5EBD9;
+  text-decoration: none;
+}
+.login .card .right a:hover {
+  text-decoration: underline;
+  color: var(--color-white);
+}
+.login .card .right button[type=submit] {
+  width: 100%;
+  padding: 14px;
+  margin-top: 0.5rem;
+  border-radius: 14px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background: #4A3D2F;
+  cursor: pointer;
+  transition: var(--transition-medium);
+  box-shadow: var(--shadow-md);
+}
+.login .card .right button[type=submit]:hover {
+  background-color: #474034;
+  transform: translateY(-2px);
+  box-shadow: #A8916D;
+}
+.login .card .right .divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0 1rem;
+  color: #302a24;
+  font-size: 0.85rem;
+}
+.login .card .right .divider::before,
+.login .card .right .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #aa9c8f;
+}
+.login .card .right .divider span {
+  padding: 0 15px;
+}
+.login .card .right .alt-text {
+  font-size: 0.85rem;
+  color: #D4C4B4;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.login .card .right button:not([type=submit]) {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+.login .card .right button:not([type=submit]):hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.login .card .right p:last-of-type {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+.login .card .right p:last-of-type a {
+  font-weight: 600;
+  color: #685c51;
+}
+.login .card .right .google {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+.login .card .right .google:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.login .card .right .google img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}/*# sourceMappingURL=Login.css.map */

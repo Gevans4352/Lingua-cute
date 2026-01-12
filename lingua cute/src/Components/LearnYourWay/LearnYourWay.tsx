@@ -40,7 +40,7 @@ const LearnYourWay = () => {
   ];
 
   return (
-    <section className="lwenyourwei">
+    <section className="lwenyourwei" id="lwenyourwei">
       <h3>Learn Your Way</h3>
       <h4 className="subtitle">
         Discover different ways to learn languages, all designed to be fun, engaging,
