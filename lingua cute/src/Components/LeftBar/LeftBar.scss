@@ -10,3 +10,110 @@ body,
   width: 100%;
 
 }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+
+}
+
+.leftBar {
+  width: 260px;
+  min-height: 100vh;
+  background: #b6aca8;
+  color: #e5e7eb;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: sticky;
+  top: 0;
+  transition: width 0.3s ease;
+
+  p {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #3d291e;
+    margin: 1rem 0 0.4rem;
+  }
+
+  .menu,
+  .accounts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 0.5rem;
+    color: #e5e7ec;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, transform 0.1s ease;
+
+    span {
+      display: flex;
+      font-size: 1.2rem;
+      color: #8D6E63;
+
+      
+    }
+
+    &:hover {
+      background: #c9b5a8;
+      
+      transform: translateX(3px);
+    }
+
+    &:hover span{
+      color: #ffffff;
+    }
+
+    &:active {
+      background: #6D4C41;
+    }
+  }
+
+  // logout spacing
+  > button:last-child {
+    margin-top: auto;
+    color: #f87171;
+
+    &:hover {
+      background: rgba(248, 113, 113, 0.15);
+    }
+  }
+}
+
+
+
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    .main-content {
+      padding: 30px 40px;
+    }
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    .main-content {
+      padding: 40px 60px;
+    }
+  }
+}
