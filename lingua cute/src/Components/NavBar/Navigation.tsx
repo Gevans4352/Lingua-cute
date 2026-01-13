@@ -8,7 +8,7 @@ import logo from "../../assets/lokn.png"
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
-const Navigation =()=>{
+const Navigation = () => {
 useEffect(() => {
   const handleScroll = () => {
     const logo = document.querySelector('.logo');

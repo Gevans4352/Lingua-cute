@@ -1,0 +1,44 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  
+  .main-content {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #8B6F5C;
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+
+
+@media (min-width: 768px) {
+  .dashboard-container {
+    .main-content {
+      padding: 30px 40px;
+    }
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    .main-content {
+      padding: 40px 60px;
+    }
+  }
+}

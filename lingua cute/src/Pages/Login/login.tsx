@@ -4,8 +4,10 @@ import { TbLockPassword } from "react-icons/tb";
 import googleIcon from "../../assets/google-icon-logo-svgrepo-com.svg"
 import "./Login.scss";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -57,8 +59,10 @@ const Login = () => {
               ></button>
             </div>
             <Link to="/Reset">Forgot Password?</Link>
-            <button type="submit">Sign In</button>
-          </form>
+          <button type="submit" onClick={(e) => { e.preventDefault(); navigate('/Dashboard');}}>
+            Sign In
+            </button> 
+            </form>
             <div className="divider">
               <span>or continue with</span>
             </div>
