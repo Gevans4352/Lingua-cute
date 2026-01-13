@@ -1,83 +1,76 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
-
 }
 
 .navboard {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
+  justify-content: space-between; // Pushes left-group and davion to opposite sides
+  padding: 10px 20px;
   background: #FFFFFF;
   border-bottom: 1px solid #D7CCC8;
-  margin: 0;
+  width: 100%;
+
+.left-group {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
 
   button {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
-    margin: 0;
+    padding: 5px;
     display: flex;
     align-items: center;
-    gap: 8px; // Space between icon and text
     color: #8D6E63;
     font-size: 24px;
+    transition: color 0.2s ease;
 
     &:hover {
       color: #FF7043;
-      
-      p {
-        color: #FF7043;
-      }
     }
 
     span {
       display: flex;
-      margin: 0;
-      padding: 0;
-    }
-
-    p {
-      margin: 0;
-      padding: 0;
-      font-size: 20px;
-      font-weight: 600;
-      color: #3E2723;
     }
   }
 
-  .davion {
+  p {
     margin: 0;
     padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3E2723;
+    white-space: nowrap; // Prevents the text from wrapping
+  }
 
+  .davion {
     ul {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 20px;
       list-style: none;
-      margin: 0;
-      padding: 0;
 
       li {
-        margin: 0;
-        padding: 0;
         display: flex;
         align-items: center;
         color: #8D6E63;
-        font-size: 18px;
+        font-size: 16px;
         cursor: pointer;
+        transition: color 0.2s ease;
 
         &:hover {
           color: #FF7043;
+        }
+        
+        // Style for the 'user' text specifically
+        &:last-child {
+          font-weight: 500;
+          color: #3E2723;
         }
       }
     }
