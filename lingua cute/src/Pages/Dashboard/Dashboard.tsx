@@ -2,6 +2,7 @@ import "./Dashboard.scss";
 import LeftBar from "../../Components/LeftBar/LeftBar";
 import Davhboard from "../../Components/Davhboard/Davhboard";
 import MainDashboard from "../../Components/MainDashboard/MainDashBoard";
+import Streaks from "../../Components/Streaks/Streaks";
 import { useState } from "react";
 
 const Dashboard = () => {
@@ -14,6 +15,7 @@ const Dashboard = () => {
         <Davhboard onToggleSidebar={() => setOpen(!open)} />
         <div className="actual-page-content">
           <MainDashboard/>
+          <Streaks/>
         </div>
     </div>
 </section>
