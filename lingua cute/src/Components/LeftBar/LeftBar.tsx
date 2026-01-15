@@ -10,27 +10,40 @@ import { IoLogOutOutline } from "react-icons/io5";
 
 interface LeftBarProps {
   isOpen?: boolean;
+  onClose?: () => void;
 }
 
-const LeftBar: React.FC<LeftBarProps> = ({ isOpen = false }) => {
+const LeftBar: React.FC<LeftBarProps> = ({ isOpen = false, onClose }) => {
+    const handleOverlayClick = () => {
+        if (onClose && window.innerWidth <= 1024) {
+            onClose();
+        }
+    };
+
     return(
-        <section className={`leftBar ${isOpen ? 'open' : ''}`}>
-            <h2>LinguaBloom</h2>
-            <p>Main Menu</p>
-            <div className="menu">
-                <button><span><IoHomeOutline /></span> {!isOpen && 'Home'}</button>
-                <button><span><LuBookOpen /></span> {!isOpen && 'Learning Progress'}</button>
-                <button><span><MdOutlineTranslate /></span> {!isOpen && 'My Translation'}</button>
-                <button><span><IoGameControllerOutline /></span> {!isOpen && 'Games & Challenge'}</button>
-                <button><span><IoTrophyOutline /></span> {!isOpen && 'LeaderBoard'}</button>
-            </div>
-            <p>Account</p>
-            <div className="accounts">
-                <button><span><FiUser /></span> {!isOpen && 'Profile'}</button>
-                <button><span><RiSettings5Line /></span> {!isOpen && 'Settings'}</button>
-            </div>
-            <button><span><IoLogOutOutline /></span> {!isOpen && 'Logout'}</button>
-        </section>
+        <>
+            <div 
+                className={`sidebar-overlay ${isOpen ? 'active' : ''}`} 
+                onClick={handleOverlayClick}
+            ></div>
+            <section className={`leftBar ${isOpen ? 'open' : ''}`}>
+                <h2>LinguaBloom</h2>
+                <p>Main Menu</p>
+                <div className="menu">
+                    <button><span><IoHomeOutline /></span> <span className="button-text">Home</span></button>
+                    <button><span><LuBookOpen /></span> <span className="button-text">Learning Progress</span></button>
+                    <button><span><MdOutlineTranslate /></span> <span className="button-text">My Translation</span></button>
+                    <button><span><IoGameControllerOutline /></span> <span className="button-text">Games & Challenge</span></button>
+                    <button><span><IoTrophyOutline /></span> <span className="button-text">LeaderBoard</span></button>
+                </div>
+                <p>Account</p>
+                <div className="accounts">
+                    <button><span><FiUser /></span> <span className="button-text">Profile</span></button>
+                    <button><span><RiSettings5Line /></span> <span className="button-text">Settings</span></button>
+                </div>
+                <button><span><IoLogOutOutline /></span> <span className="button-text">Logout</span></button>
+            </section>
+        </>
     )
 }
 

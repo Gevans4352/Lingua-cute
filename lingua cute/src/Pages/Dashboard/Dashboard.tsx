@@ -1,6 +1,7 @@
 import "./Dashboard.scss";
 import LeftBar from "../../Components/LeftBar/LeftBar";
 import Davhboard from "../../Components/Davhboard/Davhboard";
+import MainDashboard from "../../Components/MainDashboard/MainDashBoard";
 import { useState } from "react";
 
 const Dashboard = () => {
@@ -8,11 +9,11 @@ const Dashboard = () => {
 
   return (
    <section className="redo">
-    <LeftBar isOpen={open} />
+    <LeftBar isOpen={open} onClose={() => setOpen(false)} />
     <div className="main-right-side">
-        <Davhboard onToggleSidebar={setOpen} />
+        <Davhboard onToggleSidebar={() => setOpen(!open)} />
         <div className="actual-page-content">
-          <p>Hello World</p>
+          <MainDashboard/>
         </div>
     </div>
 </section>

@@ -21,28 +21,75 @@ body,
   gap: 1.2rem;
   position: sticky;
   top: 0;
-  transition: width 0.3s ease, padding 0.3s ease;
+  transition: transform 0.3s ease, width 0.3s ease, padding 0.3s ease;
   overflow: hidden;
-
-  &.open {
-    width: 80px;
-    padding: 1.5rem 0.5rem;
+  z-index: 1000;
+  
+  // Show scrollbar only on tablet and smaller screens
+  @media (max-width: 1024px) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     
-    h2, p {
-      opacity: 0;
-      visibility: hidden;
-      width: 0;
-      height: 0;
-      overflow: hidden;
+    &::-webkit-scrollbar {
+      width: 8px;
     }
     
-    button {
-      justify-content: center;
-      padding: 0.65rem;
-      gap: 0;
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #8D6E63;
+      border-radius: 4px;
       
-      span {
-        margin: 0;
+      &:hover {
+        background: #6D4C41;
+      }
+    }
+    
+    // Firefox scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: #8D6E63 rgba(0, 0, 0, 0.1);
+    
+    &.open {
+      transform: translateX(0);
+    }
+  }
+
+  &.open {
+    @media (min-width: 1025px) {
+      width: 80px;
+      padding: 1.5rem 0.5rem;
+      
+      h2, p {
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+      
+      button {
+        justify-content: center;
+        padding: 0.65rem;
+        gap: 0;
+        
+        .button-text {
+          opacity: 0;
+          visibility: hidden;
+          width: 0;
+          overflow: hidden;
+        }
+        
+        span {
+          margin: 0;
+        }
       }
     }
   }
@@ -83,6 +130,10 @@ body,
     transition: all 0.3s ease;
     white-space: nowrap;
 
+    .button-text {
+      transition: opacity 0.3s ease, visibility 0.3s ease, width 0.3s ease;
+    }
+
     span {
       display: flex;
       font-size: 1.2rem;
@@ -112,6 +163,30 @@ body,
 
     &:hover {
       background: rgba(248, 113, 113, 0.15);
+    }
+  }
+}
+
+// Overlay for mobile/tablet when sidebar is open
+.sidebar-overlay {
+  display: none;
+  
+  @media (max-width: 1024px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+    &.active {
+      opacity: 1;
+      visibility: visible;
     }
   }
 }
