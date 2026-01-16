@@ -3,10 +3,15 @@ import LeftBar from "../../Components/LeftBar/LeftBar";
 import Davhboard from "../../Components/Davhboard/Davhboard";
 import MainDashboard from "../../Components/MainDashboard/MainDashBoard";
 import Streaks from "../../Components/Streaks/Streaks";
-import { useState } from "react";
+import QuickActions from "../../Components/QuickActions/QuickActions";
+import { useEffect, useState } from "react";
+import RecentActivity from "../../Components/RecentActivity/RecentActivity";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+      document.title = "Dashboard";
+    }, []);
 
   return (
    <section className="redo">
@@ -16,6 +21,10 @@ const Dashboard = () => {
         <div className="actual-page-content">
           <MainDashboard/>
           <Streaks/>
+          <h2>Quick Actions</h2>
+          <QuickActions/>
+          <h2>Recent Activity</h2>
+          <RecentActivity/>
         </div>
     </div>
 </section>
