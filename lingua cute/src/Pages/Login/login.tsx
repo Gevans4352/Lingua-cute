@@ -5,6 +5,7 @@ import googleIcon from "../../assets/google-icon-logo-svgrepo-com.svg"
 import "./Login.scss";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Login = () => {
               />
             </div>
             <div className="input-wrapper">
-              <TbLockPassword />
+           
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
@@ -56,9 +57,11 @@ const Login = () => {
                 id="showPasswd"
                 className="password"
                 onClick={() => setShowPassword(!showPassword)}
-              ></button>
+                >
+                {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
+              </button>
             </div>
-            <Link to="/Reset">Forgot Password?</Link>
+            <Link to="/Reset" forgot-password-link>Forgot Password?</Link>
           <button type="submit" onClick={(e) => { e.preventDefault(); navigate('/Dashboard');}}>
             Sign In
             </button> 

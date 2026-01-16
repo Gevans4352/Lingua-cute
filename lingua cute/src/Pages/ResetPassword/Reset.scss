@@ -1,27 +1,51 @@
 @import "../../style.scss";
 
 :root {
-  --color-bg:  #8B6F5C;
-  --card-bg: #C9B5A0;
+  --color-bg: linear-gradient(135deg, #f5e6e8 0%, #d5a6bd 50%, #8b4555 100%);
+  --card-bg: #f5e6e8;
 }
 
 .reset {
-  background-color: var(--color-bg);
+  background: linear-gradient(135deg, #f5e6e8 0%, #d5a6bd 50%, #8b4555 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
 
+  // Mobile small (320px - 480px)
+  @media (max-width: 480px) {
+    padding: 15px;
+  }
+
   .card {
     background-color: var(--card-bg);
     width: 100%;
-    max-width: 420px; // 👈 smaller card
-    padding: 2.5rem 2rem; // 👈 tighter padding
+    max-width: 420px;
+    padding: 2.5rem 2rem;
     border-radius: 22px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
     border: 1px solid rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(18px);
+
+    // Tablet (481px - 768px)
+    @media (max-width: 768px) {
+      max-width: 90%;
+      padding: 2rem 1.5rem;
+    }
+
+    // Mobile (max 480px)
+    @media (max-width: 480px) {
+      max-width: 100%;
+      padding: 1.8rem 1.2rem;
+      border-radius: 18px;
+    }
+
+    // Very small devices (max 360px)
+    @media (max-width: 360px) {
+      padding: 1.5rem 1rem;
+      border-radius: 15px;
+    }
   }
 
   .right {
@@ -34,6 +58,21 @@
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 0.4rem;
+
+      // Tablet
+      @media (max-width: 768px) {
+        font-size: 1.75rem;
+      }
+
+      // Mobile
+      @media (max-width: 480px) {
+        font-size: 1.5rem;
+      }
+
+      // Very small
+      @media (max-width: 360px) {
+        font-size: 1.35rem;
+      }
     }
 
     p {
@@ -42,12 +81,31 @@
       text-align: center;
       line-height: 1.5;
 
+      // Mobile
+      @media (max-width: 480px) {
+        font-size: 0.8rem;
+        line-height: 1.4;
+      }
+
+      // Very small
+      @media (max-width: 360px) {
+        font-size: 0.75rem;
+      }
+
       &:first-of-type {
         margin-bottom: 0.6rem;
+
+        @media (max-width: 480px) {
+          margin-bottom: 0.4rem;
+        }
       }
 
       &:nth-of-type(2) {
         margin-bottom: 1.8rem;
+
+        @media (max-width: 480px) {
+          margin-bottom: 1.4rem;
+        }
       }
     }
 
@@ -56,6 +114,11 @@
       display: flex;
       flex-direction: column;
       gap: 1.3rem;
+
+      // Mobile
+      @media (max-width: 480px) {
+        gap: 1rem;
+      }
     }
 
     .input-wrapper {
@@ -68,9 +131,26 @@
       border: 1px solid #D4C4B4;
       transition: var(--transition-medium);
 
+      // Mobile
+      @media (max-width: 480px) {
+        padding: 11px 12px;
+        gap: 8px;
+      }
+
+      // Very small
+      @media (max-width: 360px) {
+        padding: 10px;
+      }
+
       svg {
         font-size: 1.1rem;
         color: #4A3D2F;
+        flex-shrink: 0;
+
+        // Mobile
+        @media (max-width: 480px) {
+          font-size: 1rem;
+        }
       }
 
       input {
@@ -78,16 +158,27 @@
         background: transparent;
         border: none;
         outline: none;
-        color: #2C2416;
+        color: #5a2d3d;
         font-size: 0.9rem;
+        min-width: 0; // Prevents overflow
+
+        // Mobile
+        @media (max-width: 480px) {
+          font-size: 0.85rem;
+        }
+
+        // Very small
+        @media (max-width: 360px) {
+          font-size: 0.8rem;
+        }
 
         &::placeholder {
-          color: #A8916D;
+          color: #c97a8f;
         }
       }
 
       &:focus-within {
-         color: #2C2416;
+        color: #2C2416;
 
         svg {
           color: #4A3D2F;
@@ -103,15 +194,38 @@
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--color-white);
-      background: #4A3D2F;
+      background: #d5a6bd;
       cursor: pointer;
       transition: var(--transition-medium);
       box-shadow: var(--shadow-md);
 
+      // Mobile
+      @media (max-width: 480px) {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+
+      // Very small
+      @media (max-width: 360px) {
+        padding: 11px;
+        font-size: 0.85rem;
+      }
+
       &:hover {
-        background-color: #474034;
+        background-color: #b87c99;
         transform: translateY(-2px);
         box-shadow: #A8916D;
+      }
+
+      // Disable hover effect on touch devices
+      @media (hover: none) {
+        &:hover {
+          transform: none;
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
       }
     }
 
@@ -119,13 +233,55 @@
       margin-top: 1.6rem;
       font-size: 0.8rem;
 
+      // Mobile
+      @media (max-width: 480px) {
+        margin-top: 1.2rem;
+        font-size: 0.75rem;
+      }
+
       a {
-        color: #363025;;
+        color: #363025;
         font-weight: 600;
 
         &:hover {
           color: var(--color-white);
           text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Landscape orientation for mobile devices
+@media (max-height: 600px) and (orientation: landscape) {
+  .reset {
+    padding: 10px;
+
+    .card {
+      padding: 1.2rem 1.5rem;
+      max-width: 500px;
+
+      .right {
+        h1 {
+          font-size: 1.3rem;
+          margin-bottom: 0.2rem;
+        }
+
+        p {
+          font-size: 0.75rem;
+          margin-bottom: 0.4rem !important;
+        }
+
+        form {
+          gap: 0.8rem;
+        }
+
+        .input-wrapper {
+          padding: 9px 12px;
+        }
+
+        button {
+          padding: 10px;
         }
       }
     }

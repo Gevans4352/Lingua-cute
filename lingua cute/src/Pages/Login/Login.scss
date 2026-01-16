@@ -1,4 +1,5 @@
 @import "../../style.scss";
+
 :root {
   --color-bg-dark: #2a2a2a;
   --color-bg-black: #0f0f0f;
@@ -18,258 +19,535 @@
   --transition-slow: all 0.5s ease;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 html,
 body,
 #root {
   height: 100%;
   width: 100%;
-
 }
+
 .login {
-  background-color: #8B6F5C;
+  background: linear-gradient(135deg, #f5e6e8 0%, #d5a6bd 50%, #8b4555 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
 
+  // Tablet
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
+  // Mobile
+  @media (max-width: 480px) {
+    padding: 12px;
+  }
 
   .card {
     display: flex;
-    background-color: #C9B5A0;
+    background-color: #f5e6e8;
     min-height: min(600px, 90vh);
     max-width: 500px;
+    width: 100%;
     padding: 3rem 2.5rem;
     backdrop-filter: blur(20px);
     border-radius: 24px;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    
-    
-  .right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 450px;
-    color: #2C2416;
 
-    h1 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
+    // Tablet
+    @media (max-width: 768px) {
+      max-width: 90%;
+      padding: 2.5rem 2rem;
+      min-height: min(550px, 85vh);
+    }
 
+    // Mobile
+    @media (max-width: 480px) {
+      max-width: 100%;
+      padding: 2rem 1.5rem;
+      border-radius: 20px;
+      min-height: auto;
+    }
+
+    // Very small devices
+    @media (max-width: 360px) {
+      padding: 1.5rem 1.2rem;
+      border-radius: 18px;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 450px;
+      color: #2C2416;
+
+      // Tablet
       @media (max-width: 768px) {
+        max-width: 100%;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+
+        // Tablet
+        @media (max-width: 768px) {
           font-size: 2rem;
         }
 
+        // Mobile
         @media (max-width: 480px) {
           font-size: 1.75rem;
         }
-    }
 
-    p {
-      font-size: 0.9rem;
-      color: #4d443c;
-      margin-bottom: 2rem;
-      text-align: center;
+        // Very small
+        @media (max-width: 360px) {
+          font-size: 1.5rem;
+        }
+      }
 
+      .forgot-password-link {
+        color: #0f0f0f;
+
+        &:hover {
+          color: var(--color-white);
+        }
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #5a2d3d;
+        margin-bottom: 2rem;
+        text-align: center;
+
+        // Mobile
         @media (max-width: 480px) {
           font-size: 0.85rem;
           margin-bottom: 1.5rem;
         }
-    }
 
-    form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-
-      @media (max-width: 480px) {
-        gap: 1.2rem;
-      }
-    }
-
-    .input-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: #FFF9F0;
-      border: 1px solid #D4C4B4;
-      transition: var(--transition-medium);
-      
-
-      svg {
-        font-size: 1.2rem;
-        color: var(--color-text-muted);
-      }
-
-      input {
-        flex: 1;
-        background: transparent;
-        border: none;
-        outline: none;
-        font-size: 0.95rem;
-        color: #2C2416;
-
-        &::placeholder {
-          color: #A8916D;
+        // Very small
+        @media (max-width: 360px) {
+          font-size: 0.8rem;
+          margin-bottom: 1.2rem;
         }
       }
 
-      &:focus-within {
-        color: #2C2416;
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+
+        // Mobile
+        @media (max-width: 480px) {
+          gap: 1.2rem;
+        }
+
+        // Very small
+        @media (max-width: 360px) {
+          gap: 1rem;
+        }
+      }
+
+      .input-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: #FFF9F0;
+        border: 1px solid #D4C4B4;
+        transition: var(--transition-medium);
+
+        // Mobile
+        @media (max-width: 480px) {
+          padding: 12px 14px;
+          gap: 8px;
+        }
+
+        // Very small
+        @media (max-width: 360px) {
+          padding: 10px 12px;
+        }
 
         svg {
-          color: #4A3D2F;
+          font-size: 1.2rem;
+          color: var(--color-text-muted);
+          flex-shrink: 0;
+
+          // Mobile
+          @media (max-width: 480px) {
+            font-size: 1.1rem;
+          }
+
+          // Very small
+          @media (max-width: 360px) {
+            font-size: 1rem;
+          }
+        }
+
+        input {
+          flex: 1;
+          background: transparent;
+          border: none;
+          outline: none;
+          font-size: 0.95rem;
+          color: #5a2d3d;
+          min-width: 0;
+
+          // Mobile
+          @media (max-width: 480px) {
+            font-size: 0.9rem;
+          }
+
+          // Very small
+          @media (max-width: 360px) {
+            font-size: 0.85rem;
+          }
+
+          &::placeholder {
+            color: #c97a8f;
+          }
+        }
+
+        &:focus-within {
+          color: #2d1b24;
+
+          svg {
+            color: #4A3D2F;
+          }
+        }
+
+        .password {
+          width: 38px;
+          height: 38px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          background-color: #706a5e;
+          font-size: 1rem;
+          flex-shrink: 0;
+
+          // Mobile
+          @media (max-width: 480px) {
+            font-size: 0.95rem;
+          }
+
+          &:hover {
+            background-color: #dfd5c3;
+          }
+
+          // Touch devices
+          @media (hover: none) {
+            &:active {
+              background-color: #dfd5c3;
+            }
+          }
         }
       }
-
-      .password {
-        background: none;
-        border: none;
-        cursor: pointer;
-        background-color: #F5EBD9;
-        font-size: 1rem;
-
-        &:hover {
-          background-color:#dfd5c3;
-        }
-      }
-    }
-
-    a {
-      align-self: flex-end;
-      font-size: 0.85rem;
-      color: #F5EBD9;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-        color: var(--color-white);
-      }
-    }
-
-    button[type="submit"] {
-      width: 100%;
-      padding: 14px;
-      margin-top: 0.5rem;
-      border-radius: 14px;
-      border: none;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--color-white);
-      background: #4A3D2F;
-      cursor: pointer;
-      transition: var(--transition-medium);
-      box-shadow: var(--shadow-md);
-
-      &:hover {
-        background-color: #474034;
-        transform: translateY(-2px);
-        box-shadow: #A8916D;
-      }
-    }
-
-      .divider {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      margin: 2rem 0 1rem;
-      color: #302a24;
-      font-size: 0.85rem;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: #aa9c8f;
-    }
-
-    .divider span {
-      padding: 0 15px;
-    }
-
-    .alt-text {
-      font-size: 0.85rem;
-      color: #D4C4B4;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    button:not([type="submit"]) {
-      width: 100%;
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--color-white);
-      cursor: pointer;
-      transition: var(--transition-fast);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 0.95rem;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.15);
-      }
-
-    }
-
-    p:last-of-type {
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
 
       a {
+        align-self: flex-end;
+        font-size: 0.85rem;
+        color: #312f2a;
+        text-decoration: none;
+
+        // Mobile
+        @media (max-width: 480px) {
+          font-size: 0.8rem;
+        }
+
+        &:hover {
+          text-decoration: underline;
+          color: var(--color-white);
+        }
+      }
+
+      button[type="submit"] {
+        width: 100%;
+        padding: 14px;
+        margin-top: 0.5rem;
+        border-radius: 14px;
+        border: none;
+        font-size: 1rem;
         font-weight: 600;
-        color: #685c51;
+        color: var(--color-white);
+        background: #d5a6bd;
+        cursor: pointer;
+        transition: var(--transition-medium);
+        box-shadow: var(--shadow-md);
+
+        // Mobile
+        @media (max-width: 480px) {
+          padding: 13px;
+          font-size: 0.95rem;
+        }
+
+        // Very small
+        @media (max-width: 360px) {
+          padding: 12px;
+          font-size: 0.9rem;
+        }
+
+        &:hover {
+          background-color: #c97a8f;
+          transform: translateY(-2px);
+          box-shadow: #A8916D;
+        }
+
+        // Touch devices
+        @media (hover: none) {
+          &:hover {
+            transform: none;
+          }
+
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 2rem 0 1rem;
+        color: #2b2622;
+        font-size: 0.85rem;
+
+        // Mobile
+        @media (max-width: 480px) {
+          margin: 1.5rem 0 0.8rem;
+          font-size: 0.8rem;
+        }
+
+        // Very small
+        @media (max-width: 360px) {
+          margin: 1.2rem 0 0.6rem;
+        }
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #aa9c8f;
+      }
+
+      .divider span {
+        padding: 0 15px;
+
+        // Mobile
+        @media (max-width: 480px) {
+          padding: 0 10px;
+        }
+      }
+
+      .alt-text {
+        font-size: 0.85rem;
+        color: #D4C4B4;
+        margin-bottom: 1rem;
+        text-align: center;
+
+        // Mobile
+        @media (max-width: 480px) {
+          font-size: 0.8rem;
+          margin-bottom: 0.8rem;
+        }
+      }
+
+      button:not([type="submit"]) {
+        width: 100%;
+        padding: 12px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--color-white);
+        cursor: pointer;
+        transition: var(--transition-fast);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 0.95rem;
+
+        // Mobile
+        @media (max-width: 480px) {
+          padding: 11px;
+          font-size: 0.9rem;
+          gap: 8px;
+        }
+
+        // Very small
+        @media (max-width: 360px) {
+          padding: 10px;
+          font-size: 0.85rem;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        // Touch devices
+        @media (hover: none) {
+          &:active {
+            background: rgba(255, 255, 255, 0.15);
+          }
+        }
+      }
+
+      p:last-of-type {
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+
+        // Mobile
+        @media (max-width: 480px) {
+          margin-top: 1.2rem;
+          font-size: 0.8rem;
+        }
+
+        // Very small
+        @media (max-width: 360px) {
+          font-size: 0.75rem;
+        }
+
+        a {
+          font-weight: 600;
+          color: #685c51;
+
+          &:hover {
+            color: var(--color-white);
+          }
+        }
+      }
+
+      .google {
+        width: 100%;
+        padding: 12px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--color-white);
+        cursor: pointer;
+        transition: var(--transition-fast);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 0.95rem;
+
+        // Mobile
+        @media (max-width: 480px) {
+          padding: 11px;
+          font-size: 0.9rem;
+          gap: 8px;
+        }
+
+        // Very small
+        @media (max-width: 360px) {
+          padding: 10px;
+          font-size: 0.85rem;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        // Touch devices
+        @media (hover: none) {
+          &:active {
+            background: rgba(255, 255, 255, 0.15);
+          }
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
+
+          // Mobile
+          @media (max-width: 480px) {
+            width: 18px;
+            height: 18px;
+          }
+        }
       }
     }
-
-    .google {
-      width: 100%;
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--color-white);
-      cursor: pointer;
-      transition: var(--transition-fast);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 0.95rem;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.15);
-      }
-    }
-
-    .google img {
-      width: 20px;
-      height: 20px;
-      object-fit: contain;
-    }
-
   }
-  
 }
 
+// Landscape orientation for mobile devices
+@media (max-height: 650px) and (orientation: landscape) {
+  .login {
+    padding: 10px;
+
+    .card {
+      padding: 1.5rem 2rem;
+      min-height: auto;
+      max-width: 600px;
+
+      .right {
+        h1 {
+          font-size: 1.5rem;
+          margin-bottom: 0.2rem;
+        }
+
+        p {
+          font-size: 0.8rem;
+          margin-bottom: 1rem;
+        }
+
+        form {
+          gap: 1rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .input-wrapper {
+          padding: 10px 12px;
+        }
+
+        button[type="submit"] {
+          padding: 11px;
+          margin-top: 0.3rem;
+        }
+
+        .divider {
+          margin: 1rem 0 0.5rem;
+        }
+
+        .google,
+        button:not([type="submit"]) {
+          padding: 10px;
+        }
+
+        p:last-of-type {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
 }
 
-
-
-
+// Extra large screens (desktop)
+@media (min-width: 1200px) {
+  .login {
+    .card {
+      max-width: 550px;
+      padding: 3.5rem 3rem;
+    }
+  }
+}
