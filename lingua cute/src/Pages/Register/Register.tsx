@@ -5,6 +5,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 import { CiUser } from "react-icons/ci";
 import googleIcon from "../../assets/google-icon-logo-svgrepo-com.svg"
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 
 const Register = ()=>{
     const [name, setName] = useState("")
@@ -115,7 +116,9 @@ const Register = ()=>{
                         id="showPasswd"
                         className="password"
                         onClick={() => setShowPassword(!showPassword)}
-                      ></button>
+                      >
+                        {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
+                      </button>
                     </div>
                     <button type="submit">Sign In</button>
                   </form>

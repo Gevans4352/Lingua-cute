@@ -12,8 +12,7 @@ body,
 
 .leftBar {
   width: 260px;
-  min-height: 100vh;
-  background: #b6aca8;
+  min-height: 100vh;background: linear-gradient(135deg, #f5e6e8 0%, #d5a6bd 50%, #c97a8f 100%);
   color: #e5e7eb;
   padding: 1.5rem 1rem;
   display: flex;
@@ -24,8 +23,6 @@ body,
   transition: transform 0.3s ease, width 0.3s ease, padding 0.3s ease;
   overflow: hidden;
   z-index: 1000;
-  
-  // Show scrollbar only on tablet and smaller screens
   @media (max-width: 1024px) {
     position: fixed;
     left: 0;
@@ -45,17 +42,15 @@ body,
     }
     
     &::-webkit-scrollbar-thumb {
-      background: #8D6E63;
+      background: #8b4555;
       border-radius: 4px;
       
       &:hover {
-        background: #6D4C41;
+        background: #5a2d3d;
       }
     }
-    
-    // Firefox scrollbar
     scrollbar-width: thin;
-    scrollbar-color: #8D6E63 rgba(0, 0, 0, 0.1);
+    scrollbar-color: #8b4555 rgba(0, 0, 0, 0.1);
     
     &.open {
       transform: translateX(0);
@@ -95,7 +90,7 @@ body,
   }
 
   h2 {
-    color: #3d291e;
+    color: #2d1b24;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     white-space: nowrap;
   }
@@ -104,7 +99,7 @@ body,
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #3d291e;
+    color: #2d1b24;
     margin: 1rem 0 0.4rem;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     white-space: nowrap;
@@ -137,13 +132,13 @@ body,
     span {
       display: flex;
       font-size: 1.2rem;
-      color: #8D6E63;
+      color: #8b4555;
       min-width: 1.2rem;
       flex-shrink: 0;
     }
 
     &:hover {
-      background: #c9b5a8;
+      background: #d5a6bd;
       transform: translateX(3px);
     }
 
@@ -152,22 +147,22 @@ body,
     }
 
     &:active {
-      background: #6D4C41;
+      background: #5a2d3d;
     }
   }
 
   // logout spacing
   > button:last-child {
     margin-top: auto;
-    color: #f87171;
+    color: #ff2727;
 
     &:hover {
       background: rgba(248, 113, 113, 0.15);
     }
   }
+  
 }
 
-// Overlay for mobile/tablet when sidebar is open
 .sidebar-overlay {
   display: none;
   

@@ -1,8 +1,7 @@
  
-import { FiThumbsUp } from "react-icons/fi";
+
 import { CiTrophy } from "react-icons/ci";
 import "./Scores.scss";
-import { FaRegStar } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 
 interface ScoresProps {

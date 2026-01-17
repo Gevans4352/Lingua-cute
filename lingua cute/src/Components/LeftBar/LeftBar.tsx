@@ -41,7 +41,7 @@ const LeftBar: React.FC<LeftBarProps> = ({ isOpen = false, onClose }) => {
                     <button><span><FiUser /></span> <span className="button-text">Profile</span></button>
                     <button><span><RiSettings5Line /></span> <span className="button-text">Settings</span></button>
                 </div>
-                <button><span><IoLogOutOutline /></span> <span className="button-text">Logout</span></button>
+                <button><span><IoLogOutOutline /></span> <span className="button-tex">Logout</span></button>
             </section>
         </>
     )

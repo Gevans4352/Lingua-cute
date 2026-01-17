@@ -10,19 +10,19 @@ const QuickActions = ()=>{
           icon: <FiBookOpen />,
           details: "Learn while having fun ",
           label: 'Continue Learning',
-          bgColor: '#817461',
+          bgColor: '#8b4555',
         },
         {
           icon: <MdOutlineTranslate />,
           details: "Translate words and phrases",
           label: 'Quick Translate',
-          bgColor: '#75582c',
+          bgColor: '#8b4555',
         },
         {
           icon: <IoGameControllerOutline />,
           label: 'Play Games',
           details: "Pick off where you left off",
-          bgColor: '#614116',
+          bgColor: '#8b4555',
         },
       ];
     return(

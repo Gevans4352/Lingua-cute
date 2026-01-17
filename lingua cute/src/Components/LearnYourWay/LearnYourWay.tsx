@@ -3,30 +3,28 @@ import { FaArrowRight, FaBook } from "react-icons/fa";
 import { HiLightBulb } from "react-icons/hi";
 import { BiTargetLock } from "react-icons/bi";
 import { FaTrophy } from "react-icons/fa";
-import { useState } from "react";
 
 const LearnYourWay = () => {
-    const [isVisible, setIsVisible] = useState(false);
   const features = [
     {
       icon: <FaBook />,
       title: "Vocabulary Builder",
       description: "Learn new words every day with cute flashcards and spaced repetition.",
       bgColor: "#FFE8D1",  
-      iconBg: "#FFA07A",
+      iconBg: "#d17db8",
     },
     {
       icon: <HiLightBulb />,
       title: "Grammar Tips",
       description: "Easy-to-understand grammar lessons that make learning fun!",
        bgColor: "#FFEBD8", 
-      iconBg: "#E8934A",
+      iconBg: "#b1749e",
     },
     {
       icon: <BiTargetLock />,
       title: "Practice Exercises",
       description: "Interactive exercises to reinforce what you've learned.",
-      iconBg: "#E8934A",
+      iconBg: "#754b69",
       bgColor: "#F5EBD9"
       
     },
@@ -35,7 +33,7 @@ const LearnYourWay = () => {
       title: "Achievement System",
       description: "Track your progress and earn badges as you learn!",
       bgColor: "#FFE8E0",
-      iconBg: "#FFCCBC",
+      iconBg: "#9e6b8f",
     },
   ];
 

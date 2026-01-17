@@ -39,13 +39,10 @@ body,
   align-items: center;
   justify-content: center;
   padding: 20px;
-
-  // Tablet
   @media (max-width: 768px) {
     padding: 15px;
   }
 
-  // Mobile
   @media (max-width: 480px) {
     padding: 12px;
   }
@@ -62,14 +59,11 @@ body,
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.06);
 
-    // Tablet
     @media (max-width: 768px) {
       max-width: 90%;
       padding: 2.5rem 2rem;
       min-height: min(550px, 85vh);
     }
-
-    // Mobile
     @media (max-width: 480px) {
       max-width: 100%;
       padding: 2rem 1.5rem;
@@ -171,14 +165,10 @@ body,
         background: #FFF9F0;
         border: 1px solid #D4C4B4;
         transition: var(--transition-medium);
-
-        // Mobile
         @media (max-width: 480px) {
           padding: 12px 14px;
           gap: 8px;
         }
-
-        // Very small
         @media (max-width: 360px) {
           padding: 10px 12px;
         }
@@ -187,13 +177,9 @@ body,
           font-size: 1.2rem;
           color: var(--color-text-muted);
           flex-shrink: 0;
-
-          // Mobile
           @media (max-width: 480px) {
             font-size: 1.1rem;
           }
-
-          // Very small
           @media (max-width: 360px) {
             font-size: 1rem;
           }
@@ -207,13 +193,9 @@ body,
           font-size: 0.95rem;
           color: #5a2d3d;
           min-width: 0;
-
-          // Mobile
           @media (max-width: 480px) {
             font-size: 0.9rem;
           }
-
-          // Very small
           @media (max-width: 360px) {
             font-size: 0.85rem;
           }
@@ -240,8 +222,6 @@ body,
           background-color: #706a5e;
           font-size: 1rem;
           flex-shrink: 0;
-
-          // Mobile
           @media (max-width: 480px) {
             font-size: 0.95rem;
           }
@@ -549,5 +529,17 @@ body,
       max-width: 550px;
       padding: 3.5rem 3rem;
     }
+  }
+}
+@media (min-width: 769px) and (max-width: 1199px) {
+  .login {
+    display: grid;
+    place-items: center; // Modern way to center perfectly
+  }
+  
+  .card {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
   }
 }

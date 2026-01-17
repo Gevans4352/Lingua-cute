@@ -23,7 +23,7 @@ body,
   margin: 0 auto;
 
   h2 {
-  background: linear-gradient(135deg, #8b4555 0%, #4e3b44 50%, #c97a8f 100%);
+    background: linear-gradient(135deg, #8b4555 0%, #5a2d3d 50%, #c97a8f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -57,7 +57,7 @@ body,
       .question-number {
         display: block;
         font-size: 1.1em;
-        color: #5D4037;
+        color: #5a2d3d;
         font-weight: 600;
         margin-bottom: 20px;
       }
@@ -70,12 +70,12 @@ body,
         .progress-dot {
           width: 60px;
           height: 10px;
-          background: #E8DDD0;
+          background: #f5e6e8;
           border-radius: 10px;
           transition: all 0.3s ease;
 
           &.active {
-            background: linear-gradient(135deg, #D2691E 0%, #E8934A 100%);
+            background: linear-gradient(135deg, #8b4555 0%, #c97a8f 100%);
           }
         }
       }
@@ -85,7 +85,7 @@ body,
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #F5F5F5;
+      background: #f5e6e8;
       padding: 10px 25px;
       border-radius: 50px;
       margin-bottom: 30px;
@@ -93,12 +93,12 @@ body,
 
       .lang-code {
         font-weight: 700;
-        color: #D2691E;
+        color: #8b4555;
         font-size: 1em;
       }
 
       .lang-name {
-        color: #5D4037;
+        color: #5a2d3d;
         font-weight: 500;
         font-size: 1em;
       }
@@ -110,14 +110,14 @@ body,
 
       .question-text {
         font-size: 4em;
-        color: #2C2416;
+        color: #2d1b24;
         font-weight: 700;
         margin-bottom: 20px;
       }
 
       .question-hint {
         font-size: 1.3em;
-        color: #A0522D;
+        color: #8b4555;
         font-weight: 500;
       }
     }
@@ -131,18 +131,18 @@ body,
 
     .option-btn {
       padding: 25px;
-      background: #F5EBD9;
+      background: #f5e6e8;
       border: 2px solid transparent;
       border-radius: 18px;
       font-size: 1.2em;
-      color: #2C2416;
+      color: #2d1b24;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
 
       &:hover:not(:disabled) {
         background: white;
-        border-color: #D2691E;
+        border-color: #8b4555;
         transform: translateY(-3px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       }
@@ -167,11 +167,11 @@ body,
     .score-display {
       text-align: center;
       font-size: 1.4em;
-      color: #5D4037;
+      color: #5a2d3d;
       font-weight: 600;
 
       .score-number {
-        color: #D2691E;
+        color: #8b4555;
         font-size: 1.5em;
         font-weight: 700;
       }
@@ -200,14 +200,14 @@ body,
 
       h2 {
         font-size: 3em;
-        color: #2C2416;
+        color: #2d1b24;
         margin-bottom: 20px;
         font-weight: 700;
       }
 
       .encouragement {
         font-size: 1.4em;
-        color: #5D4037;
+        color: #5a2d3d;
         margin-bottom: 40px;
       }
 
@@ -235,7 +235,7 @@ body,
         font-size: 4em;
         font-weight: 700;
         margin-bottom: 40px;
-        background: linear-gradient(135deg, #D2691E 0%, #FF9E5E 100%);
+        background: linear-gradient(135deg, #8b4555 0%, #d5a6bd 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -243,7 +243,7 @@ body,
 
       .retry-btn {
         padding: 18px 50px;
-        background: linear-gradient(135deg, #FF6B9D 0%, #FF8FB3 100%);
+        background: linear-gradient(135deg, #d5a6bd 0%, #c97a8f 100%);
         color: white;
         border: none;
         border-radius: 50px;
@@ -257,7 +257,7 @@ body,
 
         &:hover {
           transform: translateY(-3px);
-          box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+          box-shadow: 0 8px 25px rgba(213, 166, 189, 0.4);
         }
       }
 

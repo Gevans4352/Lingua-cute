@@ -1,4 +1,4 @@
-:root{
+:root {
   --color-bg: #8B6F5C;
   --color-white: #fefefe;
   --color-primary: #C9B5A0;
@@ -16,19 +16,24 @@
   --transition-slow: all 0.5s ease;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
+html {
+  scroll-behavior: smooth;
   height: 100%;
   width: 100%;
 }
 
+body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+// Main Logo & Header Container
 .logo {
   position: sticky;
   top: 0;
@@ -42,29 +47,26 @@ body,
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
   a {
-  text-decoration: none;
-  color: inherit;
-}
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
-  
   img {
     width: 45px;
     height: 40px;
   }
 
   p {
-    margin: 0;
+    margin: 0 0 0 50px;
     font-weight: 600;
     color: #5a2d3d;
     font-size: 1.1em;
-    margin-left: 50px;
   }
 
   .navigation {
-    margin-left: auto; 
+    margin-left: auto;
 
     ul {
       display: flex;
@@ -72,22 +74,22 @@ html {
       list-style: none;
       margin: 0;
       padding: 0;
+      align-items: center;
 
       li {
         display: flex;
         align-items: center;
-        gap: 28px;
+        gap: 10px;
         cursor: pointer;
         color: #5a2d3d;
         font-weight: 500;
-        transition: color 0.3s ease;
+        transition: var(--transition-medium);
         text-align: center;
-        padding: 10px; 
+        padding: 10px 15px;
 
         &:hover {
           background-color: #d3d3d3;
           border-radius: 50px;
-          padding: 10px;
         }
 
         svg {
@@ -95,290 +97,111 @@ html {
         }
       }
 
-      .logl{
+      // Action Buttons
+      .logl, .path {
         display: flex;
         align-items: center;
-        gap: 18px;
+        gap: 10px;
         cursor: pointer;
-        color: #5a2d3d;
+        color: #ffffff; // Improved contrast for button text
         background-color: #8b4555;
         border-radius: 50px;
         font-weight: 500;
-        transition: color 0.3s ease;
-        text-align: center;
-        padding: 15px 30px; 
-      }
+        transition: var(--transition-medium);
+        padding: 12px 25px;
 
-      .path{
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        cursor: pointer;
-        background-color: #8b4555;
-        border-radius: 50px;
-        color: #5a2d3d;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        text-align: center;
-        padding: 15px 30px; 
+        &:hover {
+          opacity: 0.9;
+          transform: translateY(-1px);
+        }
       }
     }
   }
 
-  // Tablet and below (1024px)
+  /* --- RESPONSIVENESS --- */
+
+  // Tablets (1024px)
   @media (max-width: 1024px) {
-    padding: 10px 30px;
+    padding: 10px 25px;
     margin: 15px;
 
     p {
+      margin-left: 20px;
       font-size: 1em;
-      margin-left: 30px;
     }
 
     .navigation ul {
-      gap: 20px;
-
+      gap: 15px;
+      
       li {
-        gap: 20px;
+        padding: 8px 12px;
         font-size: 0.95em;
-
-        svg {
-          font-size: 22px;
-        }
-      }
-
-      .logl, .path {
-        padding: 12px 25px;
-        gap: 15px;
       }
     }
   }
 
-  // Mobile landscape and small tablets (768px)
+  // Mobile Landscape / Small Tablets (768px)
   @media (max-width: 768px) {
-    padding: 8px 20px;
+    flex-direction: column; // Stack Logo and Nav
+    border-radius: 25px;
+    padding: 15px;
     margin: 10px;
-    flex-wrap: wrap;
+
+    p {
+      margin: 10px 0;
+      font-size: 1em;
+    }
+
+    .navigation {
+      width: 100%;
+      margin-left: 0;
+
+      ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        li {
+          padding: 8px;
+          
+          span {
+            display: none; // Hide text for regular nav links on mobile
+          }
+          
+          svg {
+            font-size: 22px;
+          }
+        }
+
+        .logl, .path {
+          padding: 10px 20px;
+          font-size: 0.9em;
+
+          span {
+            display: inline; // Keep text for buttons so user knows what they do
+          }
+        }
+      }
+    }
+  }
+
+  // Small Mobile Portrait (480px)
+  @media (max-width: 480px) {
+    margin: 8px;
+    padding: 12px 10px;
 
     img {
       width: 35px;
       height: 32px;
     }
 
-    p {
-      font-size: 0.9em;
-      margin-left: 15px;
-    }
-
-    .navigation {
-      width: 100%;
-      margin-top: 20px;
-      margin-left: 0;
-
-      ul {
-        gap: 15px;
-        justify-content: space-around;
-
-        li {
-          gap: 15px;
-          font-size: 0.85em;
-          padding: 8px;
-
-          svg {
-            font-size: 20px;
-          }
-        }
-
-        .logl, .path {
-          padding: 10px 20px;
-          gap: 12px;
-        }
-      }
-    }
-  }
-
-  // Mobile portrait (480px)
-  @media (max-width: 480px) {
-    padding: 8px 15px;
-    margin: 8px;
-
-    img {
-      width: 30px;
-      height: 28px;
-    }
-
-    p {
-      font-size: 0.85em;
-      margin-left: 10px;
-    }
-
     .navigation ul {
-      gap: 10px;
-      flex-wrap: wrap;
-
-      li {
-        gap: 10px;
-        font-size: 0.8em;
-        padding: 6px;
-
-        svg {
-          font-size: 18px;
-        }
-
-        span {
-          display: none; // Hide text, show only icons on very small screens
-        }
-      }
+      gap: 5px;
 
       .logl, .path {
         padding: 8px 15px;
-        gap: 10px;
-      }
-    }
-  }
-  // Update the 768px breakpoint
-@media (max-width: 768px) {
-  padding: 8px 20px;
-  margin: 10px;
-  flex-direction: column; // Stack vertically
-  align-items: flex-start;
-
-  img {
-    width: 35px;
-    height: 32px;
-  }
-
-  p {
-    font-size: 0.9em;
-    margin-left: 15px;
-  }
-
-  .navigation {
-    width: 100%;
-    margin-top: 10px;
-    margin-left: 0;
-
-    ul {
-      gap: 10px; // Reduce gap more
-      justify-content: flex-start;
-      flex-wrap: wrap;
-
-      li {
-        gap: 8px; // Smaller gap
         font-size: 0.8em;
-        padding: 6px;
-
-        svg {
-          font-size: 18px;
-        }
-      }
-
-      .logl, .path {
-        padding: 8px 15px;
-        gap: 8px;
       }
     }
   }
-}
-// Large tablets (1024px - iPad Pro landscape)
-@media (max-width: 1024px) {
-  padding: 10px 25px;
-  margin: 15px;
-
-  p {
-    font-size: 0.95em;
-    margin-left: 25px;
-  }
-
-  .navigation ul {
-    gap: 15px;
-
-    li {
-      gap: 12px;
-      font-size: 0.85em;
-      padding: 8px;
-
-      svg {
-        font-size: 20px;
-      }
-    }
-
-    .logl, .path {
-      padding: 10px 18px;
-      gap: 12px;
-      font-size: 0.85em;
-    }
-  }
-}
-
-// Medium tablets (820px - iPad Air, iPad Mini landscape)
-@media (max-width: 820px) {
-  padding: 8px 20px;
-  margin: 12px;
-
-  p {
-    font-size: 0.9em;
-    margin-left: 20px;
-  }
-
-  .navigation ul {
-    gap: 12px;
-
-    li {
-      gap: 10px;
-      font-size: 0.8em;
-      
-      span {
-        display: none; // Hide text on medium tabs
-      }
-
-      svg {
-        font-size: 20px;
-      }
-    }
-
-    .logl, .path {
-      padding: 10px 15px;
-      gap: 10px;
-      
-      span {
-        display: inline; // Keep text for login/special buttons
-      }
-    }
-  }
-}
-
-// Small tablets (768px - iPad portrait)
-@media (max-width: 768px) {
-  padding: 8px 15px;
-  margin: 10px;
-
-  img {
-    width: 32px;
-    height: 30px;
-  }
-
-  p {
-    font-size: 0.85em;
-    margin-left: 15px;
-  }
-
-  .navigation ul {
-    gap: 10px;
-
-    li {
-      span {
-        display: none;
-      }
-
-      svg {
-        font-size: 22px;
-      }
-    }
-
-    .logl, .path {
-      padding: 10px 15px;
-    }
-  }
-}
 }
