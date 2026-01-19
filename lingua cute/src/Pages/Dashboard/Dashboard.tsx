@@ -21,9 +21,7 @@ const Dashboard = () => {
         <div className="actual-page-content">
           <MainDashboard/>
           <Streaks/>
-          <h2  className="juswork">Quick Actions</h2>
           <QuickActions/>
-          <h2  className="juswork">Recent Activity</h2>
           <RecentActivity/>
         </div>
     </div>
