@@ -23,6 +23,9 @@ body,
   transition: transform 0.3s ease, width 0.3s ease, padding 0.3s ease;
   overflow: hidden;
   z-index: 1000;
+  a{
+    text-decoration: dashed;
+  }
   @media (max-width: 1024px) {
     position: fixed;
     left: 0;
