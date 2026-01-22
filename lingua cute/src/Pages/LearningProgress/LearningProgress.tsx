@@ -6,9 +6,9 @@ const LearningProgress = ()=>{
         document.title = "Your Progress";
     }, []);
     return(
-        <>
-        Hello World 
-        </>
+        <div className="learning">
+            
+        </div>
     )
 }
 
