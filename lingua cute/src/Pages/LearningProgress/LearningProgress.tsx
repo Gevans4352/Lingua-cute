@@ -7,7 +7,7 @@ const LearningProgress = ()=>{
     }, []);
     return(
         <div className="learning">
-            
+            jjkkkkk
         </div>
     )
 }
