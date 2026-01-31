@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.coverEverything {
+  padding: 60px 24px 24px 24px;
+}
+
+.recalct {
+  text-align: start;
+  font-size: 42px;
+  font-weight: 700;
+  color: #3E2723;
+  margin-bottom: 48px;
+  letter-spacing: -0.5px;
+  position: relative;
+
+}
+
+.recafct{
+  text-align: start;
+  font-size: 22px;
+  font-weight: 500;
+  color: #3E2723;
+  margin-bottom: 48px;
+  letter-spacing: -0.5px;
+  position: relative;
+
+}
