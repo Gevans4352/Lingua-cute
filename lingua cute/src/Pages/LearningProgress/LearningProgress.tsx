@@ -15,7 +15,6 @@ const LearningProgress = ()=>{
     <div className="main-right-side">
         <Davhboard onToggleSidebar={() => setOpen(!open)} />
         <div className="actual-page-content">
-           <h3></h3>
            <XPtab/>
         </div>
     </div>
