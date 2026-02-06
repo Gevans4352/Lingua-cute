@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { MdOutlineMail } from "react-icons/md";
-import { TbLockPassword } from "react-icons/tb";
+// import { MdOutlineMail } from "react-icons/md";
+// import { TbLockPassword } from "react-icons/tb";
 import googleIcon from "../../assets/google-icon-logo-svgrepo-com.svg"
 import "./Login.scss";
 import { Link } from "react-router-dom";
@@ -13,19 +13,45 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.includes("@")) {
-      alert("Please enter a valid email");
+  e.preventDefault();
+  if (!email.trim()) {
+    alert("Email is required");
+    return;
+  }
+  if (!email.includes("@")) {
+    alert("Please enter a valid email");
+    return;
+  }
+  if (!password.trim()) {
+    alert("Password is required");
+    return;
+  }
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.message || "Login failed");
       return;
     }
-    if (email.trim().length === 0) {
-      return;
-    }
-  };
+    // save user
+    localStorage.setItem("user", JSON.stringify(data.user));
+    navigate("/Dashboard");
+  } catch (err) {
+    alert("Not Found");
+  }
+};
 
   useEffect(() => {
     document.title = "Login";
   }, []);
+
+  
   return (
     <div className="login">
       <div className="card">
@@ -33,8 +59,7 @@ const Login = () => {
           <h1>LinguaLove</h1>
           <p>Learn languages with love</p>
           <form onSubmit={handleLogin}>
-            <div className="input-wrapper">
-              <MdOutlineMail />
+            <div className="input-wrapper">      
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -45,7 +70,6 @@ const Login = () => {
               />
             </div>
             <div className="input-wrapper">
-           
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"

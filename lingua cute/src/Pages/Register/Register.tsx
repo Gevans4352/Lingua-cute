@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.scss";
 import { useEffect, useState } from "react";
 import { MdOutlineMail } from "react-icons/md";
@@ -8,6 +8,7 @@ import googleIcon from "../../assets/google-icon-logo-svgrepo-com.svg";
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,30 +55,28 @@ const Register = () => {
       return;
     }
 
-    try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, password }),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        alert("registration successful!");
-        setName("");
-        setEmail("");
-        setPassword("");
-      } else {
-        alert(data.message || "Registration failed!");
-      }
-    } catch (error) {
-      console.error("Error: ", error);
+   try {
+    const res = await fetch("http://localhost:5000/api/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password, name }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.message || "Login failed");
+      return;
     }
+    // save user
+    localStorage.setItem("user", JSON.stringify(data.user));
+    navigate("/Login");
+  } catch (err) {
+    alert("Server problem");
+  }
     alert("Network error. Make sure backend is running on port 5000");
   };
+
   return (
     <div className="login">
       <div className="card">
