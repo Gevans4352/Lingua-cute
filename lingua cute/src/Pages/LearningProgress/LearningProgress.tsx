@@ -7,14 +7,14 @@ import XPtab from "../../Components/XPtab/XPtab"
 const LearningProgress = ()=>{
     const [open, setOpen] = useState(false);
     useEffect(() => {
-        document.title = "Your Progrjjss";
+        document.title = "Your Progress";
     }, []);
     return(
        <section className="redo">
     <LeftBar isOpen={open} onClose={() => setOpen(false)} />
     <div className="main-right-side">
         <Davhboard onToggleSidebar={() => setOpen(!open)} />
-        <div className="actual-pajjj-content">
+        <div className="actual-page-content">
            <XPtab/>
         </div>
     </div>
