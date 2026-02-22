@@ -1,1 +1,1 @@
-language learning platform gill stack project 
+language learning platform full stack project 
