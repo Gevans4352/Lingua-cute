@@ -21,7 +21,7 @@ const XPtab = ()=>{
             icon: <FaHourglassStart />,
             number: "48%", 
             label: "Course Progress",
-            bgColor: "#8b4555"
+            bgColor: "#1f2220"
         }
     ]
     return(
