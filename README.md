@@ -1,2 +1,2 @@
 Language learning platform full stack project
-with amazing games to come sign language includes
+with amazing games to come sign language tournaments 
