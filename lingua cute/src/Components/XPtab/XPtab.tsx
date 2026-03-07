@@ -29,7 +29,7 @@ const XPtab = ()=>{
       <h2 className="recalct">Learning Progress</h2>
       <h5 className="recafct">Track your journey and continue where you left off</h5>
       <div className="actions-container">
-{tabs.map((tabs, index) => (
+{tabs.map((tabs) => (
     <div className="action-card">
       <div className="action-card-header">
         <div
