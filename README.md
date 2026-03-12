@@ -1,4 +1,4 @@
-# LinguaCute!!!!
+# LinguaCute
 
 LinguaCute is a language learning web application designed to make language practice engaging through translation tools, structured learning modules, and interactive games. The platform combines educational features with a modern interface to provide an enjoyable and accessible language learning experience.
 
