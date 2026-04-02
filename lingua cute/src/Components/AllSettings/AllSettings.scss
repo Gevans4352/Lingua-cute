@@ -11,33 +11,62 @@ body,
   width: 100%;
 }
 
-
+// ── Theme variables ───────────────────────────────────────────────────────────
 
 .coverEverythingf {
+  // Light mode defaults
+ // They're now in the global CSS
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 24px 16px 48px;
+
+  .recalct {
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: color 0.25s ease;
+  }
+
+  .recafct {
+    font-size: clamp(13px, 3vw, 16px);
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    transition: color 0.25s ease;
+  }
 }
 
+// ── Layout ────────────────────────────────────────────────────────────────────
 
-
-
-
-.actions-container {
+.actions-containers {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   width: 100%;
   max-width: 750px;
+
+  @media (max-width: 600px) {
+    gap: 24px;
+    padding: 0;
+  }
 }
+
+// ── Section card ──────────────────────────────────────────────────────────────
 
 .section {
   width: 100%;
-  background: white;
+  background: var(--bg-section);
   padding: 32px;
   border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  transition: background 0.25s ease, border-color 0.25s ease;
+
+  @media (max-width: 600px) {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
 }
 
 .section__header {
@@ -54,12 +83,18 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .section__title {
   font-size: 26px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
+  transition: color 0.25s ease;
+
+  @media (max-width: 600px) {
+    font-size: 20px;
+  }
 }
 
 .section__rows {
@@ -67,7 +102,7 @@ body,
   flex-direction: column;
 }
 
-/* BIGGER TOGGLE */
+// ── Toggle ────────────────────────────────────────────────────────────────────
 
 .toggle {
   position: relative;
@@ -77,21 +112,30 @@ body,
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background 0.25s ease;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
 
   &--on {
-    background: #f97316;
+    background: var(--accent);
 
     .toggle__thumb {
       transform: translateX(32px);
     }
+
+    &:hover {
+      background: var(--accent-hover);
+    }
   }
 
   &--off {
-    background: #d1d5db;
+    background: var(--toggle-off);
 
     .toggle__thumb {
       transform: translateX(4px);
+    }
+
+    &:hover {
+      background: var(--toggle-off-hover);
     }
   }
 
@@ -101,20 +145,30 @@ body,
     left: 0;
     width: 30px;
     height: 30px;
-    background: white;
+    background: var(--toggle-thumb);
     border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition:
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.2s ease;
+  }
+
+  &:hover .toggle__thumb {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
   }
 }
 
-/* SETTING ROW */
+// ── Setting row ───────────────────────────────────────────────────────────────
 
 .setting-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 22px 0;
+
+  & + & {
+    border-top: 1px solid var(--border-row);
+  }
 
   &__text {
     display: flex;
@@ -125,154 +179,16 @@ body,
   &__title {
     font-size: 20px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--text-primary);
+    transition: color 0.25s ease;
   }
 
   &__desc {
     font-size: 15px;
-    color: #777;
-  }
-}
-/* ── ADD THESE TO THE BOTTOM OF AllSettings.scss ── */
-
-/* Language dropdown */
-.language-select {
-  appearance: none;
-  background: #f9fafb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 14px center;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 10px 40px 10px 16px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #1a1a1a;
-  cursor: pointer;
-  outline: none;
-  min-width: 200px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    border-color: #a0aec0;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
   }
 
-  &:focus {
-    border-color: #7c3aed;
-    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
-  }
-}
-
-/* Action rows (Privacy buttons) */
-.action-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 0;
-
-  & + & {
-    border-top: 1px solid #f3f4f6;
-  }
-}
-
-.action-btn {
-  padding: 10px 22px;
-  border-radius: 10px;
-  border: 1.5px solid #e5e7eb;
-  background: white;
-  font-size: 14px;
-  font-weight: 600;
-  color: #374151;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-
-  &:hover {
-    background: #f9fafb;
-    border-color: #d1d5db;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  /* Danger Zone delete button */
-  &--delete {
-    background: #dc2626;
-    border-color: #dc2626;
-    color: white;
-    padding: 12px 28px;
-    font-size: 15px;
-
-    &:hover {
-      background: #b91c1c;
-      border-color: #b91c1c;
-      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
-    }
-  }
-}
-
-/* Danger Zone section styling */
-.section--danger {
-  border: 1.5px solid #fecaca;
-  background: #fff9f9;
-
-  .section__title {
-    color: #dc2626;
-  }
-}
-
-.danger-zone__warning {
-  font-size: 15px;
-  color: #6b7280;
-  line-height: 1.6;
-  padding: 16px 0 4px;
-  border-top: 1px solid #fee2e2;
-}
-
-.danger-zone__action {
-  display: flex;
-  justify-content: flex-start;
-  padding: 20px 0 4px;
-}
-/* ── ADD THESE TO THE BOTTOM OF AllSettings.scss ── */
-
-/* ── Responsive base ── */
-.coverEverythingf {
-  padding: 24px 16px 48px;
-
-  .recalct {
-    font-size: clamp(22px, 5vw, 32px);
-  }
-
-  .recafct {
-    font-size: clamp(13px, 3vw, 16px);
-    margin-bottom: 28px;
-  }
-}
-
-.actions-container {
-  padding: 0 8px;
-
-  @media (max-width: 600px) {
-    gap: 24px;
-    padding: 0;
-  }
-}
-
-.section {
-  @media (max-width: 600px) {
-    padding: 20px 16px;
-    border-radius: 12px;
-  }
-}
-
-.section__title {
-  @media (max-width: 600px) {
-    font-size: 20px;
-  }
-}
-
-.setting-row {
   @media (max-width: 480px) {
     flex-direction: column;
     align-items: flex-start;
@@ -281,39 +197,20 @@ body,
   }
 }
 
-/* ── Smoother toggle glide ── */
-.toggle {
-  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+// ── Language select ───────────────────────────────────────────────────────────
 
-  &__thumb {
-    transition:
-      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-      box-shadow 0.2s ease;
-  }
-
-  &:hover .toggle__thumb {
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22);
-  }
-
-  &--on:hover {
-    background: #ea6c0a;
-  }
-
-  &--off:hover {
-    background: #b8bec9;
-  }
-}
-
-/* ── Language dropdown ── */
 .language-select {
   appearance: none;
-  background: #f9fafb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 14px center;
-  border: 1.5px solid #e5e7eb;
+  background-color: var(--bg-input);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  border: 1.5px solid var(--border-soft);
   border-radius: 10px;
   padding: 10px 40px 10px 16px;
   font-size: 15px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--text-primary);
   cursor: pointer;
   outline: none;
   min-width: 200px;
@@ -321,12 +218,12 @@ body,
 
   &:hover {
     border-color: #a0aec0;
-    background-color: #f3f4f6;
+    background-color: var(--border-row);
   }
 
   &:focus {
-    border-color: #7c3aed;
-    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
   }
 
   @media (max-width: 480px) {
@@ -335,7 +232,8 @@ body,
   }
 }
 
-/* ── Action rows (Privacy buttons) ── */
+// ── Action row ────────────────────────────────────────────────────────────────
+
 .action-row {
   display: flex;
   align-items: center;
@@ -343,7 +241,7 @@ body,
   padding: 22px 0;
 
   & + & {
-    border-top: 1px solid #f3f4f6;
+    border-top: 1px solid var(--border-row);
   }
 
   @media (max-width: 480px) {
@@ -354,23 +252,30 @@ body,
   }
 }
 
+// ── Action button ─────────────────────────────────────────────────────────────
+
 .action-btn {
   padding: 10px 22px;
   border-radius: 10px;
-  border: 1.5px solid #e5e7eb;
-  background: white;
+  border: 1.5px solid var(--border-soft);
+  background: var(--bg-btn);
   font-size: 14px;
   font-weight: 600;
-  color: #374151;
+  color: var(--text-btn);
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1),
+    box-shadow 0.2s ease;
   white-space: nowrap;
 
   &:hover {
-    background: #f9fafb;
-    border-color: #d1d5db;
+    background: var(--bg-input);
+    border-color: var(--accent);
+    color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 10px var(--accent-glow);
   }
 
   &:active {
@@ -383,11 +288,10 @@ body,
     text-align: center;
   }
 
-  /* Danger Zone delete button */
   &--delete {
     background: #dc2626;
     border-color: #dc2626;
-    color: white;
+    color: #ffffff;
     padding: 12px 28px;
     font-size: 15px;
     margin-bottom: 6px;
@@ -395,6 +299,7 @@ body,
     &:hover {
       background: #b91c1c;
       border-color: #b91c1c;
+      color: #ffffff;
       box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
     }
 
@@ -405,10 +310,12 @@ body,
   }
 }
 
-/* ── Danger Zone section ── */
+// ── Danger Zone ───────────────────────────────────────────────────────────────
+
 .section--danger {
-  border: 1.5px solid #fecaca;
-  background: #fff9f9;
+  border: 1.5px solid var(--danger-border);
+  background: var(--danger-bg);
+  transition: background 0.25s ease, border-color 0.25s ease;
 
   .section__title {
     color: #dc2626;
@@ -417,10 +324,11 @@ body,
 
 .danger-zone__warning {
   font-size: 15px;
-  color: #6b7280;
+  color: var(--text-muted);
   line-height: 1.6;
   padding: 16px 0 4px;
-  border-top: 1px solid #fee2e2;
+  border-top: 1px solid var(--danger-row);
+  transition: color 0.25s ease, border-color 0.25s ease;
 
   @media (max-width: 480px) {
     font-size: 14px;

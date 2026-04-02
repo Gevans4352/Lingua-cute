@@ -3,6 +3,9 @@ import "./AllSettings.scss";
 import { MdNotifications, MdPalette, MdLanguage, MdLock, MdWarning } from "react-icons/md";
 import AlertModal from "../Tools/AlertModal";
 
+// ✅ Import theme context
+import { useTheme } from "../../ThemeContext"; // adjust path if needed
+
 // ── tiny helpers ─────────────────────────────────────────────────────────────
 
 const Toggle = ({
@@ -120,10 +123,12 @@ const CLOSED_MODAL: ModalState = {
 // ── main component ────────────────────────────────────────────────────────────
 
 const AllSettings = () => {
+  // ✅ use global dark mode from ThemeProvider
+  const { darkMode, setDarkMode } = useTheme();
+
   const [settings, setSettings] = useState({
     pushNotifications: true,
     dailyReminders: true,
-    darkMode: false,
     soundEffects: true,
   });
 
@@ -149,7 +154,6 @@ const AllSettings = () => {
       showCancel: true,
       onConfirm: () => {
         closeModal();
-        // TODO: real navigation / API call
         setTimeout(() =>
           setModal({
             isOpen: true,
@@ -170,7 +174,7 @@ const AllSettings = () => {
       type: "info",
       title: "Download Your Data",
       message:
-        "We'll prepare a full export of your learning data. This may take a few moments — we'll notify you when it's ready.",
+        "We'll prepare a full export of your learning data. This may take a few moments, we'll notify you when it's ready.",
       confirmLabel: "Start Download",
       cancelLabel: "Cancel",
       showCancel: true,
@@ -202,7 +206,6 @@ const AllSettings = () => {
       showCancel: true,
       onConfirm: () => {
         closeModal();
-        // second confirmation
         setTimeout(() =>
           setModal({
             isOpen: true,
@@ -215,7 +218,6 @@ const AllSettings = () => {
             showCancel: true,
             onConfirm: () => {
               closeModal();
-              // TODO: real delete API call
               setTimeout(() =>
                 setModal({
                   isOpen: true,
@@ -233,14 +235,13 @@ const AllSettings = () => {
       onCancel: closeModal,
     });
 
-  // ── render ─────────────────────────────────────────────────────────────────
-
+  // render //
   return (
     <div className="coverEverythingf">
       <h2 className="recalct">Settings</h2>
       <h5 className="recafct">Customize your learning experience</h5>
 
-      <div className="actions-container">
+      <div className="actions-containers">
 
         <Section
           icon={<MdNotifications size={22} color="white" />}
@@ -266,11 +267,12 @@ const AllSettings = () => {
           iconBg="linear-gradient(135deg, #a78bfa, #7c3aed)"
           title="Appearance"
         >
+          {/* ✅ Dark mode now global */}
           <SettingRow
             title="Dark Mode"
             description="Switch between light and dark theme"
-            checked={settings.darkMode}
-            onChange={() => toggle("darkMode")}
+            checked={darkMode}
+            onChange={() => setDarkMode(!darkMode)}
           />
           <SettingRow
             title="Sound Effects"
@@ -296,11 +298,10 @@ const AllSettings = () => {
             >
               <option value="en">🇺🇸 English</option>
               <option value="es">🇪🇸 Spanish</option>
-              <option value="fr">🇫🇷 French</option>
-              <option value="de">🇩🇪 German</option>
+              <option value="de">NG Yoruba</option>
               <option value="ja">🇯🇵 Japanese</option>
               <option value="zh">🇨🇳 Chinese</option>
-              <option value="ar">🇸🇦 Arabic</option>
+              <option value="ar">KR Korean</option>
             </select>
           </div>
         </Section>
@@ -345,7 +346,6 @@ const AllSettings = () => {
 
       </div>
 
-      {/* ── Global Modal ── */}
       <AlertModal
         isOpen={modal.isOpen}
         type={modal.type}
