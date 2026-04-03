@@ -20,7 +20,7 @@ body,
 }
 
 .stat-card {
-  background: #FFE8D1;
+  background: var(--bg-path);
   border-radius: 16px;
   padding: 16px;
   display: flex;
@@ -50,13 +50,13 @@ body,
 .stat-value {
   font-size: 22px;
   font-weight: 400;
-  color: #3E2723;
+  color: var(--text-muted);
   line-height: 1;
 }
 
 .stat-label {
   font-size: 14px;
-  color: #8D6E63;
+  color: var(--text-muted);
   font-weight: 500;
 }
 

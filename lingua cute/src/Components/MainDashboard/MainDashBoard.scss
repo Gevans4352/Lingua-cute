@@ -23,24 +23,21 @@ body,
     position: relative;
     padding: 4rem 4.5em;
     border-radius: 22px;
-    background: linear-gradient(
-      135deg,
-      rgba(116, 50, 26, 0.15),
-      rgba(13, 207, 165, 0.12)
-    );
+    background: var(--bg-section);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    border-color: var(--border-row);
 
     h2 {
       font-size: 3.0rem;
       font-weight: 700;
-      color: #1f2933;
+      color: var(--text-muted);
       margin-bottom: 0.5rem; 
     }
 
     p {
       margin: 0;
       font-size: 1.3rem;
-      color: #2d1b24;
+      color: var(--toggle-off);
       max-width: 65%;
     }
 

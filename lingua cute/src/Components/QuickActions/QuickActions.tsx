@@ -10,27 +10,29 @@ const QuickActions = () => {
       icon: <FiBookOpen />,
       details: "Learn while having fun ",
       label: "Continue Learning",
-      bgColor: "#8b4555",
+      bgColor: "#94a3b8",
       link: "/LearningProgress"
     },
     {
       icon: <MdOutlineTranslate />,
       details: "Translate words and phrases",
       label: "Quick Translate",
-      bgColor: "#8b4555",
+      bgColor: "#94a3b8",
       link: "/translate"
     },
     {
       icon: <IoGameControllerOutline />,
       label: "Play Games",
       details: "Pick off where you left off",
-      bgColor: "#8b4555",
+      bgColor: "#94a3b8",
       link: "GameChallenges"
     },
   ];
   return (
     <div className="coverEverything">
       <h2 className="recact">Quick Actions</h2>
+      <br />
+      <br />
       <div className="actions-container">
 {actions.map((action, index) => (
   <Link to={action.link} key={index} className="action-link">

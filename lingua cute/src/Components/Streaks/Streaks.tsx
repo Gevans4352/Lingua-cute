@@ -11,25 +11,25 @@ const Streaks = () => {
       icon: <IoFlameSharp />,
       value: '7',
       label: 'Day Streak',
-      bgColor: '#8b4555',
+      bgColor: '#a9b5c5',
     },
     {
       icon: <FaTrophy />,
       value: '1,250',
       label: 'Total XP',
-      bgColor: '#8b4555',
+      bgColor: '#a9b5c5',
     },
     {
       icon: <IoMdCheckmarkCircle />,
       value: '24',
       label: 'Lessons Done',
-      bgColor: '#8b4555',
+      bgColor: '#a9b5c5',
     },
     {
       icon: <BiTime />,
       value: '12h',
       label: 'Study Time',
-      bgColor: '#8b4555',
+      bgColor: '#a9b5c5',
     },
   ];
 

@@ -1,12 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./AllSettings.scss";
 import { MdNotifications, MdPalette, MdLanguage, MdLock, MdWarning } from "react-icons/md";
 import AlertModal from "../Tools/AlertModal";
+import { DarkModeContext } from "../../Context/DarkModeContext";
 
-// ✅ Import theme context
-import { useTheme } from "../../ThemeContext"; // adjust path if needed
-
-// ── tiny helpers ─────────────────────────────────────────────────────────────
+// tiny helpers //
 
 const Toggle = ({
   checked,
@@ -96,7 +94,7 @@ const Section = ({
   </div>
 );
 
-// ── modal state type ──────────────────────────────────────────────────────────
+// Modal state type //
 
 type ModalState = {
   isOpen: boolean;
@@ -120,11 +118,12 @@ const CLOSED_MODAL: ModalState = {
   onConfirm: () => {},
 };
 
-// ── main component ────────────────────────────────────────────────────────────
+// main component//
 
 const AllSettings = () => {
-  // ✅ use global dark mode from ThemeProvider
-  const { darkMode, setDarkMode } = useTheme();
+
+  // ✅ 'toggle' comes from context — used for dark mode
+  const { darkMode, toggle } = useContext(DarkModeContext);
 
   const [settings, setSettings] = useState({
     pushNotifications: true,
@@ -136,11 +135,10 @@ const AllSettings = () => {
   const [modal, setModal] = useState<ModalState>(CLOSED_MODAL);
 
   const closeModal = () => setModal((m) => ({ ...m, isOpen: false }));
-
-  const toggle = (key: keyof typeof settings) =>
+  const toggleSetting = (key: keyof typeof settings) =>
     setSettings((prev) => ({ ...prev, [key]: !prev[key] }));
 
-  // ── helpers to open specific modals ────────────────────────────────────────
+  // helpers to open specific modals //
 
   const openChangePassword = () =>
     setModal({
@@ -248,17 +246,18 @@ const AllSettings = () => {
           iconBg="linear-gradient(135deg, #f76b8a, #f43f5e)"
           title="Notifications"
         >
+          {/* ✅ uses toggleSetting */}
           <SettingRow
             title="Push Notifications"
             description="Get notified about your progress"
             checked={settings.pushNotifications}
-            onChange={() => toggle("pushNotifications")}
+            onChange={() => toggleSetting("pushNotifications")}
           />
           <SettingRow
             title="Daily Reminders"
             description="Remind me to practice daily"
             checked={settings.dailyReminders}
-            onChange={() => toggle("dailyReminders")}
+            onChange={() => toggleSetting("dailyReminders")}
           />
         </Section>
 
@@ -267,18 +266,17 @@ const AllSettings = () => {
           iconBg="linear-gradient(135deg, #a78bfa, #7c3aed)"
           title="Appearance"
         >
-          {/* ✅ Dark mode now global */}
           <SettingRow
             title="Dark Mode"
             description="Switch between light and dark theme"
             checked={darkMode}
-            onChange={() => setDarkMode(!darkMode)}
+            onChange={toggle}
           />
           <SettingRow
             title="Sound Effects"
             description="Play sounds for achievements and actions"
             checked={settings.soundEffects}
-            onChange={() => toggle("soundEffects")}
+            onChange={() => toggleSetting("soundEffects")}
           />
         </Section>
 
