@@ -12,8 +12,9 @@ body,
 
 .leftBar {
   width: 260px;
-  min-height: 100vh;background: linear-gradient(135deg, #f5e6e8 0%, #d5a6bd 50%, #c97a8f 100%);
-  color: #e5e7eb;
+  min-height: 100vh;
+background: #3a485e;
+  color: var(--text-primary);
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
@@ -45,15 +46,15 @@ body,
     }
     
     &::-webkit-scrollbar-thumb {
-      background: #8b4555;
+      background: var(--border-row);
       border-radius: 4px;
       
       &:hover {
-        background: #5a2d3d;
+        background: var(--accent);
       }
     }
     scrollbar-width: thin;
-    scrollbar-color: #8b4555 rgba(0, 0, 0, 0.1);
+    scrollbar-color: var(--border-row) ;
     
     &.open {
       transform: translateX(0);
@@ -93,7 +94,7 @@ body,
   }
 
   h2 {
-    color: #2d1b24;
+    color:  var(--text-primary);
     transition: opacity 0.3s ease, visibility 0.3s ease;
     white-space: nowrap;
   }
@@ -102,7 +103,7 @@ body,
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #2d1b24;
+    color:  var(--text-muted);
     margin: 1rem 0 0.4rem;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     white-space: nowrap;
@@ -123,7 +124,7 @@ body,
     gap: 0.8rem;
     padding: 0.65rem 0.8rem;
     border-radius: 0.5rem;
-    color: #e5e7ec;
+    color: var(--text-primary);
     font-size: 0.95rem;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -135,32 +136,32 @@ body,
     span {
       display: flex;
       font-size: 1.2rem;
-      color: #8b4555;
+      color: var(--text-primary);
       min-width: 1.2rem;
       flex-shrink: 0;
     }
 
     &:hover {
-      background: #d5a6bd;
+      background: var(--accent-glow);
       transform: translateX(3px);
     }
 
     &:hover span {
-      color: #ffffff;
+      color:  var(--accent);
     }
 
     &:active {
-      background: #5a2d3d;
+      background:  var(--bg-smallbox);
     }
   }
 
   // logout spacing
   > button:last-child {
     margin-top: auto;
-    color: #ff2727;
+    color: var(--border-row);
 
     &:hover {
-      background: rgba(248, 113, 113, 0.15);
+      background: var(--accent-glow);
     }
   }
   

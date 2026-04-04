@@ -7,6 +7,7 @@
   --bg-section: #ffffff;
   --bg-input: #f1f5f9;
   --bg-btn: #ffffff;
+  --btn-bg: #363e4b;
   --text-primary: #1e293b;  
   --text-muted: #64748b;
   --text-btn: #334155;
@@ -23,33 +24,26 @@
   --danger-row: #e2e8f0;
 }
 
-
-/* Dark mode overrides */
 .dark-app {
   --bg-page: #1e293b;      
   --bg-path: #273449;
   --bg-smallbox: #2e3c50;
-
+  --btn-bg: #1f2631;
   --bg-section: #334155;    
   --bg-input: #334155;
   --bg-recent: #273449;
   --bg-btn: #334155;
-
   --text-primary: #e2e8f0;
   --text-muted: #94a3b8;
   --text-btn: #f1f5f9;
-
   --border-soft: #475569;
   --border-row: #3b4a5f;
-
-  --accent: #7c8cff;         /* brighter for visibility */
+  --accent: #7c8cff;      
   --accent-hover: #9aa6ff;
   --accent-glow: rgba(124, 140, 255, 0.25);
-
   --toggle-off: #64748b;
   --toggle-off-hover: #94a3b8;
   --toggle-thumb: #e2e8f0;
-
   --danger-bg: #273449;
   --danger-border: #475569;
   --danger-row: #334155;
