@@ -1,0 +1,346 @@
+// BadgesAchievements.scss
+// Matches the design in the screenshot — soft card, pill badges, greyed-out locked state.
+
+// ─── Tokens (override from your global theme if needed) ──────────────────────
+$badge-card-bg     : #ffffff;
+$badge-card-radius : 16px;
+$badge-card-shadow : 0 2px 12px rgba(0, 0, 0, 0.07);
+$badge-card-padding: 20px 24px;
+
+$badge-item-size   : 80px;
+$badge-icon-size   : 28px;
+
+// Unlocked tint colours — one per badge (same order as DEMO_BADGES)
+$badge-tints: (
+  first_steps   : #fde8e8,   // soft red
+  week_warrior  : #fde8d8,   // soft orange
+  quick_learner : #fef9d0,   // soft yellow
+  bookworm      : #ede8fe,   // soft purple
+);
+
+$locked-bg    : #f4f4f4;
+$locked-icon  : #b0b0b0;
+$locked-label : #aaaaaa;
+
+$font-label   : "Nunito", "Poppins", sans-serif;
+$title-color  : #1a1a1a;
+$label-color  : #444444;
+
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+
+.badges-achievements {
+  background   : $badge-card-bg;
+  border-radius: $badge-card-radius;
+  box-shadow   : $badge-card-shadow;
+  padding      : $badge-card-padding;
+  display      : inline-flex;
+  flex-direction: column;
+  gap          : 16px;
+  width        : 100%;
+  max-width    : 780px;
+  font-family  : $font-label;
+
+  &__title {
+    font-size  : 1rem;
+    font-weight: 700;
+    color      : $title-color;
+    margin     : 0;
+    letter-spacing: -0.01em;
+  }
+
+  &__grid {
+    display        : flex;
+    flex-wrap      : wrap;
+    gap            : 10px;
+    list-style     : none;
+    margin         : 0;
+    padding        : 0;
+    align-items    : flex-start;
+    
+    // RESPONSIVE: Center items on mobile
+    @media (max-width: 480px) {
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    // RESPONSIVE: Adjust gap for tablets
+    @media (min-width: 481px) and (max-width: 768px) {
+      gap: 12px;
+    }
+  }
+
+  // ── Loading skeleton ────────────────────────────────────────────────────────
+  &__skeleton {
+    display: flex;
+    gap    : 10px;
+    flex-wrap: wrap;
+    
+    // RESPONSIVE: Center skeleton items on mobile
+    @media (max-width: 480px) {
+      justify-content: center;
+    }
+  }
+}
+
+
+// ─── Single badge item ────────────────────────────────────────────────────────
+
+.badge-item {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  gap            : 6px;
+  width          : $badge-item-size;
+  min-height     : $badge-item-size + 20px;
+  border-radius  : 12px;
+  padding        : 10px 6px 8px;
+  cursor         : default;
+  transition     : transform 0.18s ease, box-shadow 0.18s ease;
+  position       : relative;
+  
+  // RESPONSIVE: Adjust badge size for different screens
+  @media (max-width: 480px) {
+    width: 70px;
+    min-height: 90px;
+    padding: 8px 4px 6px;
+    gap: 4px;
+  }
+  
+  @media (max-width: 360px) {
+    width: 65px;
+    min-height: 85px;
+  }
+
+  &__icon-wrap {
+    position       : relative;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 44px;
+    height         : 44px;
+    border-radius  : 10px;
+    transition     : background 0.2s;
+    
+    // RESPONSIVE: Adjust icon container size
+    @media (max-width: 480px) {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+    }
+  }
+
+  &__icon {
+    font-size : $badge-icon-size;
+    line-height: 1;
+    display   : flex;
+    align-items: center;
+    justify-content: center;
+    
+    // RESPONSIVE: Adjust icon size
+    @media (max-width: 480px) {
+      font-size: 24px;
+    }
+  }
+
+  &__lock {
+    position : absolute;
+    bottom   : -4px;
+    right    : -4px;
+    font-size: 10px;
+    
+    // RESPONSIVE: Adjust lock position for smaller screens
+    @media (max-width: 480px) {
+      font-size: 9px;
+      bottom: -2px;
+      right: -2px;
+    }
+  }
+
+  &__label {
+    font-size  : 0.68rem;
+    font-weight: 600;
+    text-align : center;
+    line-height: 1.25;
+    color      : $label-color;
+    white-space: nowrap;
+    
+    // RESPONSIVE: Handle text overflow on mobile
+    @media (max-width: 480px) {
+      font-size: 0.6rem;
+      white-space: normal;
+      max-width: 65px;
+      word-break: break-word;
+    }
+    
+    @media (max-width: 360px) {
+      font-size: 0.55rem;
+      max-width: 60px;
+    }
+  }
+
+  // ── Skeleton variant ─────────────────────────────────────────────────────
+  &--skeleton {
+    width     : $badge-item-size;
+    height    : $badge-item-size + 20px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation : shimmer 1.4s infinite;
+    border-radius: 12px;
+    
+    // RESPONSIVE: Adjust skeleton size
+    @media (max-width: 480px) {
+      width: 70px;
+      height: 90px;
+    }
+    
+    @media (max-width: 360px) {
+      width: 65px;
+      height: 85px;
+    }
+  }
+
+
+  // ── UNLOCKED ──────────────────────────────────────────────────────────────
+  &--unlocked {
+    &:hover {
+      transform : translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      
+      // RESPONSIVE: Disable hover effect on touch devices
+      @media (hover: none) and (pointer: coarse) {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+
+    // Per-badge tint backgrounds
+    @each $id, $tint in $badge-tints {
+      &.badge-item--#{$id} {
+        background: $tint;
+
+        .badge-item__icon-wrap {
+          background: darken($tint, 6%);
+        }
+      }
+    }
+
+    // Default tint for unlocked badges not in the map (e.g. dynamic badges)
+    &:not([class*="badge-item--first_steps"])
+    &:not([class*="badge-item--week_warrior"])
+    &:not([class*="badge-item--quick_learner"])
+    &:not([class*="badge-item--bookworm"]) {
+      background: #e8f5e9;
+      .badge-item__icon-wrap { background: #c8e6c9; }
+    }
+  }
+
+
+  // ── LOCKED / DISABLED ────────────────────────────────────────────────────
+  // Key technique: filter + opacity dim the whole badge.
+  // pointer-events still active so tooltip (title attr) still shows.
+  &--locked {
+    background: $locked-bg;
+    opacity   : 0.65;
+
+    // Greyscale the icon + icon wrap
+    .badge-item__icon-wrap {
+      background: #e2e2e2;
+      filter    : grayscale(1);
+    }
+
+    .badge-item__icon {
+      color: $locked-icon;
+    }
+
+    .badge-item__label {
+      color: $locked-label;
+    }
+
+    &:hover {
+      // Subtle hint that it's not interactable but still shows tooltip
+      transform: scale(0.97);
+      
+      // RESPONSIVE: Disable hover effect on touch devices
+      @media (hover: none) and (pointer: coarse) {
+        transform: none;
+      }
+    }
+  }
+}
+
+
+// ─── Per-badge class helpers (added dynamically from id) ─────────────────────
+// These let SCSS tint rules match via class like .badge-item--first_steps
+
+@each $id, $_ in $badge-tints {
+  .badge-item--#{$id} {
+    // Placeholder — tint applied inside &--unlocked above
+  }
+}
+
+// You can extend this map as new badge types come from the backend:
+// Just add a new entry to $badge-tints and a new icon to ICON_MAP in the TSX.
+
+
+// ─── Animations ───────────────────────────────────────────────────────────────
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// ─── ADDITIONAL RESPONSIVE STYLES FOR THE CARD ────────────────────────────────
+
+// RESPONSIVE: Adjust card padding for different screen sizes
+@media (max-width: 768px) {
+  .badges-achievements {
+    padding: 16px 20px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .badges-achievements {
+    padding: 12px 16px;
+    gap: 12px;
+    
+    &__title {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+}
+
+// RESPONSIVE: Landscape mode optimization
+@media (max-height: 600px) and (orientation: landscape) {
+  .badges-achievements {
+    max-height: 90vh;
+    overflow-y: auto;
+    
+    &__grid {
+      gap: 8px;
+    }
+  }
+  
+  .badge-item {
+    width: 70px;
+    min-height: 85px;
+  }
+}
+
+// RESPONSIVE: Large screen optimization
+@media (min-width: 1200px) {
+  .badges-achievements {
+    max-width: 900px;
+  }
+  
+  .badge-item {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+}

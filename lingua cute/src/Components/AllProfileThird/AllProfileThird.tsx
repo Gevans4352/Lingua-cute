@@ -9,7 +9,7 @@ const AlllProfileThird: React.FC<LevelProgressProps> = ({
   currentXP = 5000,
   maxXP = 20000,
   level = 100,
-  levelLabel = "level One",
+  levelLabel = " ",
 
 }) => {
  
