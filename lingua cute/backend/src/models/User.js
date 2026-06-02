@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import { timeStamp } from 'node:console';
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -21,8 +22,16 @@ const userSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  resetToken:{
+    type: String,
+    required: true
+  },
+  resetTokenExpiry:{
+    type: Number,
+    required: true
   }
-});
+}, { timestamps: true });
 
 // Hash password before saving
 userSchema.pre('save', async function() {
